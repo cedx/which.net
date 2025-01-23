@@ -1,0 +1,11 @@
+{
+	"isRoot": true,
+	"version": 1,
+	"tools": {
+		"cake.tool": {
+			"commands": ["dotnet-cake"],
+			"version": "5.0.0",
+			"rollForward": false
+		}
+	}
+}
