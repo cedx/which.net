@@ -1,7 +1,7 @@
 using static System.IO.Path;
 
 var release = HasArgument("r") || HasArgument("release");
-var target = Argument<string>("t", null) ?? Argument("task", "default");
+var target = Argument<string>("t", null) ?? Argument("target", "default");
 
 Task("build").Description("Builds the project.").Does(() => {
 	DotNetBuild("lcov.sln", new DotNetBuildSettings { Configuration = release ? "Release" : "Debug" });
