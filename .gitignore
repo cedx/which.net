@@ -2,6 +2,6 @@
 /.idea/
 /.vs/
 /bin/
-/src/**/obj/
+/*/obj/
 /var/
 /wiki/
