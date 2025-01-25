@@ -32,8 +32,8 @@ Task("test")
 Task("version")
 	.Description("Updates the version number in the sources.")
 	.DoesForEach(GetFiles("*/*.csproj"), file => {
-		var pattern = new Regex(@"<VersionPrefix>\d+(\.\d+){2}</VersionPrefix>");
-		WriteAllText(file.FullPath, pattern.Replace(ReadAllText(file.FullPath), $"<VersionPrefix>{version}</VersionPrefix>"));
+		var pattern = new Regex(@"<Version>\d+(\.\d+){2}</Version>");
+		WriteAllText(file.FullPath, pattern.Replace(ReadAllText(file.FullPath), $"<Version>{version}</Version>"));
 	});
 
 Task("default")
