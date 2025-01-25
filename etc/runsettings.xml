@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+	<MSTest>
+		<Parallelize>
+			<Scope>MethodLevel</Scope>
+		</Parallelize>
+	</MSTest>
+	<RunConfiguration>
+		<ResultsDirectory>../var/test</ResultsDirectory>
+	</RunConfiguration>
+</RunSettings>
