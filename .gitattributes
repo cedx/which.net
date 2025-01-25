@@ -1,6 +1,7 @@
 * text=auto
 .* text
 
+*.cake text
 *.cs text diff=csharp
 *.csproj text
 *.css text diff=css
