@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>Belin.Which</AssemblyName>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<OutDir>../bin</OutDir>
+		<TargetFramework>net8.0</TargetFramework>
+		<VersionPrefix>1.0.0</VersionPrefix>
+	</PropertyGroup>
+</Project>
