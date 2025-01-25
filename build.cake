@@ -1,14 +1,13 @@
 using static System.IO.File;
 using System.Text.RegularExpressions;
 
-var project = Context.Configuration.GetValue("package_project");
 var release = HasArgument("r") || HasArgument("release");
 var target = Argument<string>("t", null) ?? Argument("target", "default");
 var version = Context.Configuration.GetValue("package_version");
 
 Task("build")
 	.Description("Builds the project.")
-	.Does(() => DotNetBuild(project, new() { Configuration = release ? "Release" : "Debug" }));
+	.Does(() => DotNetBuild("src/which.csproj", new() { Configuration = release ? "Release" : "Debug" }));
 
 Task("clean")
 	.Description("Deletes all generated files.")
@@ -18,7 +17,7 @@ Task("clean")
 
 Task("format")
 	.Description("Formats the source code.")
-	.Does(() => DotNetFormat(project));
+	.Does(() => DotNetFormat("which.sln"));
 
 Task("publish")
 	.Description("Publishes the package.")
@@ -28,7 +27,7 @@ Task("publish")
 
 Task("test")
 	.Description("Runs the test suite.")
-	.Does(() => DotNetTest(project));
+	.Does(() => DotNetTest());
 
 Task("version")
 	.Description("Updates the version number in the sources.")
