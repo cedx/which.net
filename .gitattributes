@@ -2,6 +2,7 @@
 .* text
 
 *.cake text
+*.config text
 *.cs text diff=csharp
 *.csproj text
 *.css text diff=css
