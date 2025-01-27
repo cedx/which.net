@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
+		<Copyright>Cédric Belin</Copyright>
+		<Product>Which for .NET</Product>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.Which.Tests</AssemblyName>
 		<BaseOutputPath>obj</BaseOutputPath>
@@ -10,7 +16,6 @@
 		<RunSettingsFilePath>../etc/runsettings.xml</RunSettingsFilePath>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net8.0</TargetFramework>
-		<Version>1.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
