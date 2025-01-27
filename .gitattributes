@@ -12,6 +12,7 @@
 *.json text
 *.md text diff=markdown
 *.ps1 text
+*.sln text
 *.sql text
 *.svg text
 *.ts text
