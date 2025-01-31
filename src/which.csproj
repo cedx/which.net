@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Copyright>Cédric Belin</Copyright>
+		<Copyright>© Cédric Belin</Copyright>
 		<Product>Which for .NET</Product>
 		<Version>1.0.0</Version>
 	</PropertyGroup>
