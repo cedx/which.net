@@ -1,3 +1,2 @@
-#!/usr/bin/env pwsh
 Set-StrictMode -Version Latest
-& "$PSScriptRoot/bin/Belin.Which.exe" @args
+& "$PSScriptRoot\bin\Belin.Which.exe" @args
