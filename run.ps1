@@ -1,3 +1,5 @@
 #!/usr/bin/env pwsh
 Set-StrictMode -Version Latest
-& "$PSScriptRoot/bin/Belin.Which.exe" @args
+$commandPath = Get-Item $PSCommandPath
+$scriptRoot = $commandPath.LinkType ? (Split-Path $commandPath.LinkTarget) : $PSScriptRoot
+& "$scriptRoot/bin/Belin.Which.exe" @args
