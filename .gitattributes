@@ -6,6 +6,7 @@
 *.cs text diff=csharp
 *.csproj text
 *.css text diff=css
+*.esproj text
 *.html text diff=html
 *.http text
 *.js text
