@@ -27,7 +27,7 @@ Task("publish")
 
 Task("test")
 	.Description("Runs the test suite.")
-	.Does(() => DotNetTest());
+	.Does(() => DotNetTest("test/which.tests.csproj", new() { Settings = ".runsettings" }));
 
 Task("version")
 	.Description("Updates the version number in the sources.")
