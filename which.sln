@@ -1,13 +1,70 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "which", "src\which.csproj", "{5688502D-E1E5-D139-182E-F9CA84A4AB9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "which.tests", "test\which.tests.csproj", "{3F8B99DA-7AB7-60FE-A1C9-739E8C4E5A9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.runsettings = .runsettings
+		.config\dotnet-tools.json = .config\dotnet-tools.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{53B3262A-949D-40A2-A393-2227EDB8F5A2}"
+	ProjectSection(SolutionItems) = preProject
+		build.cake = build.cake
+		cake.config = cake.config
+		.github\workflows\ci.yaml = .github\workflows\ci.yaml
+		run.ps1 = run.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{9605F56E-EB18-4F6E-9EBA-E36AB522F766}"
+	ProjectSection(SolutionItems) = preProject
+		AUTHORS.txt = AUTHORS.txt
+		CHANGELOG.md = CHANGELOG.md
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{85995F30-1A3C-4439-8B52-06727B11CA66}"
+	ProjectSection(SolutionItems) = preProject
+		example\all.cs = example\all.cs
+		example\first.cs = example\first.cs
+		example\stream.cs = example\stream.cs
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{54145D71-E952-48D1-9CAC-2EAFC001BE12}"
+	ProjectSection(SolutionItems) = preProject
+		res\executable.cmd = res\executable.cmd
+		res\executable.sh = res\executable.sh
+		res\not_executable.sh = res\not_executable.sh
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5688502D-E1E5-D139-182E-F9CA84A4AB9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5688502D-E1E5-D139-182E-F9CA84A4AB9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5688502D-E1E5-D139-182E-F9CA84A4AB9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5688502D-E1E5-D139-182E-F9CA84A4AB9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F8B99DA-7AB7-60FE-A1C9-739E8C4E5A9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F8B99DA-7AB7-60FE-A1C9-739E8C4E5A9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F8B99DA-7AB7-60FE-A1C9-739E8C4E5A9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F8B99DA-7AB7-60FE-A1C9-739E8C4E5A9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {597684AC-3750-4E5B-934F-297F7826BB05}
 	EndGlobalSection
 EndGlobal
