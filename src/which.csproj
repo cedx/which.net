@@ -6,6 +6,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.Which</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
