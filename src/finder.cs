@@ -1,8 +1,8 @@
 namespace Belin.Which;
 
+using Mono.Unix.Native;
 using System;
 using System.IO;
-using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Text.RegularExpressions;
 
@@ -74,44 +74,21 @@ public class Finder {
 	/// <returns><see langword="true"/> if the specified file is executable, otherwise <see langword="false"/>.</returns>
 	[UnsupportedOSPlatform("windows")]
 	private static bool CheckFilePermissions(string file) {
+		// TODO check "result" code
+
 		// Others.
-		var perms = File.GetUnixFileMode(file);
-		if ((perms & UnixFileMode.OtherExecute) != 0) return true;
+		var result = Syscall.stat(file, out var stat);
+		if ((stat.st_mode & FilePermissions.S_IXOTH) != 0) return true;
 
 		// Group.
-		var gid = LibC.getgid();
-		// TODO if ((perms & UnixFileMode.GroupExecute) != 0) return gid == stats.gid;
+		var gid = Syscall.getgid();
+		if ((stat.st_mode & FilePermissions.S_IXGRP) != 0) return gid == stat.st_gid;
 
 		// Owner.
-		var uid = LibC.getuid();
-		// TODO if ((perms & UnixFileMode.UserExecute) != 0) return uid == stats.uid;
+		var uid = Syscall.getuid();
+		if ((stat.st_mode & FilePermissions.S_IXUSR) != 0) return uid == stat.st_uid;
 
 		// Root.
-		return (perms & (UnixFileMode.GroupExecute | UnixFileMode.UserExecute)) != 0 && uid == 0;
+		return (stat.st_mode & (FilePermissions.S_IXGRP | FilePermissions.S_IXUSR)) != 0 && uid == 0;
 	}
-}
-
-/// <summary>
-/// Provides access to the <c>libc</c> native library.
-/// </summary>
-internal static partial class LibC {
-
-	/// <summary>
-	/// The library name.
-	/// </summary>
-	private const string LibraryName = "libc";
-
-	/// <summary>
-	/// Gets the real group identifier of the calling process.
-	/// </summary>
-	/// <returns>The real group identifier of the calling process.</returns>
-	[LibraryImport(LibraryName, SetLastError = true)]
-	public static partial int getgid();
-
-	/// <summary>
-	/// Gets the real user identifier of the calling process.
-	/// </summary>
-	/// <returns>The real user identifier of the calling process.</returns>
-	[LibraryImport(LibraryName, SetLastError = true)]
-	public static partial int getuid();
 }

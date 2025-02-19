@@ -14,4 +14,8 @@
 		<OutDir>../bin</OutDir>
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Mono.Unix" Version="7.*-*" />
+	</ItemGroup>
 </Project>
