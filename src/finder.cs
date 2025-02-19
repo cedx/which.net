@@ -22,11 +22,6 @@ public class Finder {
 	public IList<string> Paths { get; private set; }
 
 	/// <summary>
-	/// The list of operating system types indicating the Windows platform.
-	/// </summary>
-	private static readonly string[] windowsPlatforms = ["cygwin", "msys"];
-
-	/// <summary>
 	/// Creates a new finder.
 	/// </summary>
 	/// <param name="paths">The list of system paths.</param>
@@ -78,6 +73,7 @@ public class Finder {
 
 		// Others.
 		var result = Syscall.stat(file, out var stat);
+		Console.WriteLine($"result stat: {result}");
 		if ((stat.st_mode & FilePermissions.S_IXOTH) != 0) return true;
 
 		// Group.
