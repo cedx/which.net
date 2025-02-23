@@ -17,7 +17,7 @@ public sealed class FinderTest {
 
 		// It should set the `Extensions` property to the value of the `PATHEXT` environment variable by default.
 		var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? "";
-		List<string> extensions = pathExt.Length > 0 ? [.. pathExt.Split(';').Select(item => item.ToLowerInvariant()).Distinct()] : [];
+		List<string> extensions = pathExt.Length > 0 ? [.. pathExt.Split(';').Select(item => item.ToLowerInvariant()).Distinct()] : [".exe", ".cmd", ".bat", ".com"];
 		CollectionAssert.AreEqual(extensions, new Finder().Extensions.ToList());
 
 		// It should put in lower case the list of file extensions.
