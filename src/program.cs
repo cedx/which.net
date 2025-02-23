@@ -1,5 +1,5 @@
-using static Belin.Which.Finder;
 using System.CommandLine;
+using static Belin.Which.Finder;
 
 // Configure the command line arguments.
 var commandArgument = new Argument<string>("command", "The name of the executable to find.");

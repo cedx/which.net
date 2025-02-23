@@ -1,5 +1,5 @@
-using static Belin.Which.Finder;
 using System;
+using static Belin.Which.Finder;
 
 // Finds the first instance of an executable.
 var path = Which("foobar").First;

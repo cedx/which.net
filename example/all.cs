@@ -1,5 +1,5 @@
-using static Belin.Which.Finder;
 using System;
+using static Belin.Which.Finder;
 
 // Finds all instances of an executable.
 var paths = Which("foobar").All;
