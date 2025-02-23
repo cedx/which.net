@@ -26,22 +26,31 @@ public class Finder {
 	/// </summary>
 	/// <param name="paths">The list of system paths.</param>
 	/// <param name="extensions">The list of executable file extensions.</param>
-	public Finder(IList<string>? paths = null, IList<string>? extensions = null) {
-		extensions ??= [];
-		if (extensions.Count == 0) {
-			var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? "";
-			extensions = pathExt.Length > 0 ? pathExt.Split(';') : [".exe", ".cmd", ".bat", ".com"];
-		}
-
+	public Finder(IEnumerable<string>? paths = null, IEnumerable<string>? extensions = null) {
 		paths ??= [];
-		if (paths.Count == 0) {
+		if (!paths.Any()) {
 			var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? "";
 			paths = pathEnv.Length > 0 ? pathEnv.Split(Path.PathSeparator) : [];
+		}
+
+		extensions ??= [];
+		if (!extensions.Any()) {
+			var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? "";
+			extensions = pathExt.Length > 0 ? pathExt.Split(';') : [".exe", ".cmd", ".bat", ".com"];
 		}
 
 		var regex = new Regex(@"^""|""$");
 		Extensions = [.. extensions.Select(item => item.ToLowerInvariant()).Distinct()];
 		Paths = [.. paths.Select(item => regex.Replace(item, "")).Where(item => item.Length > 0).Distinct()];
+	}
+
+	/// <summary>
+	/// Finds the instances of an executable in the system path.
+	/// </summary>
+	/// <param name="command">The command to be resolved.</param>
+	/// <returns>The paths of the executables found.</returns>
+	public IEnumerable<string> Find(string command) {
+		return Paths.SelectMany(directory => FindExecutables(directory, command));
 	}
 
 	/// <summary>
@@ -73,7 +82,6 @@ public class Finder {
 
 		// Others.
 		var result = Syscall.stat(file, out var stat);
-		Console.WriteLine($"result stat: {result}");
 		if ((stat.st_mode & FilePermissions.S_IXOTH) != 0) return true;
 
 		// Group.
@@ -86,5 +94,16 @@ public class Finder {
 
 		// Root.
 		return (stat.st_mode & (FilePermissions.S_IXGRP | FilePermissions.S_IXUSR)) != 0 && uid == 0;
+	}
+
+	/// <summary>
+	/// Finds the instances of an executable in the specified directory.
+	/// </summary>
+	/// <param name="directory">The directory path.</param>
+	/// <param name="command">The command to be resolved.</param>
+	/// <returns>The paths of the executables found.</returns>
+	private IEnumerable<string> FindExecutables(string directory, string command) {
+		var extensions = OperatingSystem.IsWindows() ? new string[] { string.Empty }.Concat(Extensions) : Extensions;
+		return extensions.Select(extension => Path.Join(directory, $"{command}{extension}")).Where(IsExecutable);
 	}
 }
