@@ -5,7 +5,7 @@ namespace Belin.Which;
 /// </summary>
 /// <param name="command">The searched command.</param>
 /// <param name="finder">The finder used to perform the search.</param>
-public class ResultSet(string command, Finder finder) {
+public sealed class ResultSet(string command, Finder finder) {
 	
 	/// <summary>
 	/// The searched command.
