@@ -13,5 +13,6 @@ jobs:
           dotnet-version: 8
       - name: Run tests
         run: |
-          printenv
+          echo $PATH
+          echo $PATHEXT
           dotnet test
