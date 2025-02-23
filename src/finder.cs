@@ -89,10 +89,8 @@ public class Finder {
 	/// <returns><see langword="true"/> if the specified file is executable, otherwise <see langword="false"/>.</returns>
 	[UnsupportedOSPlatform("windows")]
 	private static bool CheckFilePermissions(string file) {
-		// TODO check "result" code
-
 		// Others.
-		var result = Syscall.stat(file, out var stat);
+		var _ = Syscall.stat(file, out var stat);
 		if ((stat.st_mode & FilePermissions.S_IXOTH) != 0) return true;
 
 		// Group.
