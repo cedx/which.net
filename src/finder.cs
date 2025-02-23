@@ -45,6 +45,17 @@ public class Finder {
 	}
 
 	/// <summary>
+	/// Finds the instances of the specified command in the system path.
+	/// </summary>
+	/// <param name="command">The command to be resolved.</param>
+	/// <param name="paths">The system path. Defaults to the `PATH` environment variable.</param>
+	/// <param name="extensions">The executable file extensions. Defaults to the `PATHEXT` environment variable.</param>
+	/// <returns>The search results.</returns>
+	public static ResultSet Which(string command, IEnumerable<string>? paths = null, IEnumerable<string>? extensions = null) {
+		return new ResultSet(command, new Finder(paths, extensions));
+	}
+
+	/// <summary>
 	/// Finds the instances of an executable in the system path.
 	/// </summary>
 	/// <param name="command">The command to be resolved.</param>
@@ -103,7 +114,9 @@ public class Finder {
 	/// <param name="command">The command to be resolved.</param>
 	/// <returns>The paths of the executables found.</returns>
 	private IEnumerable<string> FindExecutables(string directory, string command) {
-		var extensions = OperatingSystem.IsWindows() ? new string[] { string.Empty }.Concat(Extensions) : Extensions;
-		return extensions.Select(extension => Path.Join(directory, $"{command}{extension}")).Where(IsExecutable);
+		return new string[] { string.Empty }
+			.Concat(OperatingSystem.IsWindows() ? Extensions : [])
+			.Select(extension => Path.GetFullPath(Path.Join(directory, $"{command}{extension}")))
+			.Where(IsExecutable);
 	}
 }
