@@ -10,14 +10,14 @@ public sealed class ResultSetTest {
 
 	[TestMethod]
 	public void All() {
-		var paths = new string[] { "../res" };
+		var paths = new string[] { "../res/fixtures" };
 
 		// It should return the path of the `executable.cmd` file on Windows.
 		var executables = Which("executable", paths).All;
 		if (!OperatingSystem.IsWindows()) AreEqual(0, executables.Length);
 		else {
 			AreEqual(1, executables.Length);
-			StringAssert.EndsWith(executables[0], @"\res\executable.cmd");
+			StringAssert.EndsWith(executables[0], @"\res\fixtures\executable.cmd");
 		}
 
 		// It should return the path of the `executable.sh` file on POSIX.
@@ -25,7 +25,7 @@ public sealed class ResultSetTest {
 		if (OperatingSystem.IsWindows()) AreEqual(0, executables.Length);
 		else {
 			AreEqual(1, executables.Length);
-			StringAssert.EndsWith(executables[0], "/res/executable.sh");
+			StringAssert.EndsWith(executables[0], "/res/fixtures/executable.sh");
 		}
 
 		// It should return an empty array if the searched command is not executable or not found.
@@ -35,17 +35,17 @@ public sealed class ResultSetTest {
 
 	[TestMethod]
 	public void First() {
-		var paths = new string[] { "../res" };
+		var paths = new string[] { "../res/fixtures" };
 
 		// It should return the path of the `executable.cmd` file on Windows.
 		var executable = Which("executable", paths).First;
-		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executable, @"\res\executable.cmd");
+		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executable, @"\res\fixtures\executable.cmd");
 		else IsNull(executable);
 
 		// It should return the path of the `executable.sh` file on POSIX.
 		executable = Which("executable.sh", paths).First;
 		if (OperatingSystem.IsWindows()) IsNull(executable);
-		else StringAssert.EndsWith(executable, "/res/executable.sh");
+		else StringAssert.EndsWith(executable, "/res/fixtures/executable.sh");
 
 		// It should return an empty string if the searched command is not executable or not found.
 		IsNull(Which("not_executable.sh", paths).First);

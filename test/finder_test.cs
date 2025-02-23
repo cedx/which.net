@@ -26,7 +26,7 @@ public sealed class FinderTest {
 
 	[TestMethod]
 	public void Find() {
-		var finder = new Finder(paths: ["../res"]);
+		var finder = new Finder(paths: ["../res/fixtures"]);
 
 		// It should return the path of the `executable.cmd` file on Windows.
 		List<string> executables = [.. finder.Find("executable")];
@@ -52,9 +52,9 @@ public sealed class FinderTest {
 		IsFalse(finder.IsExecutable("res/not_executable.sh"));
 
 		// It should return `false` for a POSIX executable, when test is run on Windows.
-		AreEqual(!OperatingSystem.IsWindows(), finder.IsExecutable("../res/executable.sh"));
+		AreEqual(!OperatingSystem.IsWindows(), finder.IsExecutable("../res/fixtures/executable.sh"));
 
 		// It should return `false` for a Windows executable, when test is run on POSIX.
-		AreEqual(OperatingSystem.IsWindows(), finder.IsExecutable("../res/executable.cmd"));
+		AreEqual(OperatingSystem.IsWindows(), finder.IsExecutable("../res/fixtures/executable.cmd"));
 	}
 }
