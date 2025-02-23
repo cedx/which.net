@@ -10,12 +10,12 @@ public sealed class ResultSet(string command, Finder finder) {
 	/// <summary>
 	/// The searched command.
 	/// </summary>
-	private readonly string command = command;
+	public string Command { get; private set; } = command;
 
 	/// <summary>
 	/// The finder used to perform the search.
 	/// </summary>
-	private readonly Finder finder = finder;
+	public Finder Finder { get; private set; } = finder;
 
 	/// <summary>
 	/// All instances of the searched command.
@@ -35,6 +35,6 @@ public sealed class ResultSet(string command, Finder finder) {
 	/// A stream of instances of the searched command.
 	/// </summary>
 	public IEnumerable<string> Stream {
-		get => finder.Find(command);
+		get => Finder.Find(Command);
 	}
 }

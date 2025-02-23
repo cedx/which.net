@@ -1,4 +1,4 @@
-using Belin.Which;
+using static Belin.Which.Finder;
 using System.CommandLine;
 
 // Configure the command line arguments.
@@ -14,9 +14,8 @@ var program = new RootCommand("Find the instances of an executable in the system
 
 // Configure the command line handler.
 program.SetHandler((command, all, silent) => {
-	var finder = new Finder();
-	var resultSet = new ResultSet(command, finder);
 
+	var resultSet = Which(command);
 	var executables = new List<string>();
 	if (all) executables.AddRange(resultSet.All);
 	else {
@@ -24,15 +23,14 @@ program.SetHandler((command, all, silent) => {
 		if (executable is not null) executables.Add(executable);
 	}
 
-	if (!silent) {
-		if (executables.Count > 0) Console.WriteLine(string.Join(Environment.NewLine, executables));
-		else {
-			var paths = string.Join(Path.PathSeparator, finder.Paths);
-			Console.Error.WriteLine($"No \"{command}\" in ({paths}).");
-		}
+	if (executables.Count > 0) {
+		if (!silent) Console.WriteLine(string.Join(Environment.NewLine, executables));
+		return Task.FromResult(0);
 	}
 
-	return Task.FromResult(executables.Count > 0 ? 0 : 404);
+	if (!silent) Console.Error.WriteLine($"No \"{command}\" in ({string.Join(Path.PathSeparator, resultSet.Finder.Paths)}).");
+	return Task.FromResult(404);
+
 }, commandArgument, allOption, silentOption);
 
 // Start the application.
