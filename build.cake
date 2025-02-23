@@ -1,5 +1,5 @@
-using static System.IO.File;
 using System.Text.RegularExpressions;
+using static System.IO.File;
 
 var release = HasArgument("r") || HasArgument("release");
 var target = Argument<string>("t", null) ?? Argument("target", "default");
