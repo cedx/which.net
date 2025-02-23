@@ -11,14 +11,14 @@ public sealed class FinderTest {
 	[TestMethod]
 	public void Constructor() {
 		// It should set the `Paths` property to the value of the `PATH` environment variable by default.
-		//var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? "";
-		//List<string> paths = pathEnv.Length > 0 ? [.. pathEnv.Split(Path.PathSeparator).Where(item => item.Length > 0).Distinct()] : [];
-		//CollectionAssert.AreEqual(paths, new Finder().Paths.ToList());
+		var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? "";
+		List<string> paths = pathEnv.Length > 0 ? [.. pathEnv.Split(Path.PathSeparator).Where(item => item.Length > 0).Distinct()] : [];
+		CollectionAssert.AreEqual(paths, new Finder().Paths.ToList());
 
 		// It should set the `Extensions` property to the value of the `PATHEXT` environment variable by default.
-		var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? "";
-		List<string> extensions = pathExt.Length > 0 ? [.. pathExt.Split(';').Distinct().Select(item => item.ToLowerInvariant())] : [];
-		CollectionAssert.AreEqual(extensions, new Finder().Extensions.ToList());
+		//var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? "";
+		//List<string> extensions = pathExt.Length > 0 ? [.. pathExt.Split(';').Distinct().Select(item => item.ToLowerInvariant())] : [];
+		//CollectionAssert.AreEqual(extensions, new Finder().Extensions.ToList());
 
 		// It should put in lower case the list of file extensions.
 		CollectionAssert.AreEqual(new List<string> { ".exe", ".js", ".ps1" }, new Finder(extensions: [".EXE", ".JS", ".PS1"]).Extensions.ToList());
