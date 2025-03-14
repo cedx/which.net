@@ -17,7 +17,7 @@ Task("clean")
 
 Task("format")
 	.Description("Formats the source code.")
-	.Does(() => DotNetFormat("which.sln"));
+	.Does(() => DotNetFormat("which.slnx"));
 
 Task("publish")
 	.Description("Publishes the package.")

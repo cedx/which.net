@@ -1,0 +1,4 @@
+<Solution>
+	<Project Path="src/which.csproj" />
+	<Project Path="test/which.tests.csproj" />
+</Solution>
