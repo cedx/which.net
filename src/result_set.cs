@@ -10,12 +10,12 @@ public sealed class ResultSet(string command, Finder finder) {
 	/// <summary>
 	/// The searched command.
 	/// </summary>
-	public string Command { get; } = command;
+	public string Command => command;
 
 	/// <summary>
 	/// The finder used to perform the search.
 	/// </summary>
-	public Finder Finder { get; } = finder;
+	public Finder Finder => finder;
 
 	/// <summary>
 	/// All instances of the searched command.
