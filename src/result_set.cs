@@ -3,19 +3,9 @@ namespace Belin.Which;
 /// <summary>
 /// Provides convenient access to the stream of search results.
 /// </summary>
-/// <param name="command">The searched command.</param>
-/// <param name="finder">The finder used to perform the search.</param>
-public sealed class ResultSet(string command, Finder finder) {
-
-	/// <summary>
-	/// The searched command.
-	/// </summary>
-	public string Command => command;
-
-	/// <summary>
-	/// The finder used to perform the search.
-	/// </summary>
-	public Finder Finder => finder;
+/// <param name="Command">The searched command.</param>
+/// <param name="Finder">The finder used to perform the search.</param>
+public sealed record ResultSet(string Command, Finder Finder) {
 
 	/// <summary>
 	/// All instances of the searched command.
