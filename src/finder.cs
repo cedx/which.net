@@ -51,36 +51,30 @@ public class Finder {
 	/// <param name="paths">The system path. Defaults to the `PATH` environment variable.</param>
 	/// <param name="extensions">The executable file extensions. Defaults to the `PATHEXT` environment variable.</param>
 	/// <returns>The search results.</returns>
-	public static ResultSet Which(string command, IEnumerable<string>? paths = null, IEnumerable<string>? extensions = null) {
-		return new ResultSet(command, new Finder(paths, extensions));
-	}
+	public static ResultSet Which(string command, IEnumerable<string>? paths = null, IEnumerable<string>? extensions = null) =>
+		new(command, new Finder(paths, extensions));
 
 	/// <summary>
 	/// Finds the instances of an executable in the system path.
 	/// </summary>
 	/// <param name="command">The command to be resolved.</param>
 	/// <returns>The paths of the executables found.</returns>
-	public IEnumerable<string> Find(string command) {
-		return Paths.SelectMany(directory => FindExecutables(directory, command));
-	}
+	public IEnumerable<string> Find(string command) => Paths.SelectMany(directory => FindExecutables(directory, command));
 
 	/// <summary>
 	/// Gets a value indicating whether the specified file is executable.
 	/// </summary>
 	/// <param name="file">The file to be checked.</param>
 	/// <returns><see langword="true"/> if the specified file is executable, otherwise <see langword="false"/>.</returns>
-	public bool IsExecutable(string file) {
-		return File.Exists(file) && (OperatingSystem.IsWindows() ? CheckFileExtension(file) : CheckFilePermissions(file));
-	}
+	public bool IsExecutable(string file) =>
+		File.Exists(file) && (OperatingSystem.IsWindows() ? CheckFileExtension(file) : CheckFilePermissions(file));
 
 	/// <summary>
 	/// Checks that the specified file is executable according to the executable file extensions.
 	/// </summary>
 	/// <param name="file">The file to be checked.</param>
 	/// <returns><see langword="true"/> if the specified file is executable, otherwise <see langword="false"/>.</returns>
-	private bool CheckFileExtension(string file) {
-		return Extensions.Contains(Path.GetExtension(file).ToLowerInvariant());
-	}
+	private bool CheckFileExtension(string file) => Extensions.Contains(Path.GetExtension(file).ToLowerInvariant());
 
 	/// <summary>
 	/// Checks that the specified file is executable according to its permissions.
@@ -111,10 +105,8 @@ public class Finder {
 	/// <param name="directory">The directory path.</param>
 	/// <param name="command">The command to be resolved.</param>
 	/// <returns>The paths of the executables found.</returns>
-	private IEnumerable<string> FindExecutables(string directory, string command) {
-		return new string[] { string.Empty }
-			.Concat(OperatingSystem.IsWindows() ? Extensions : [])
-			.Select(extension => Path.GetFullPath(Path.Join(directory, $"{command}{extension}")))
-			.Where(IsExecutable);
-	}
+	private IEnumerable<string> FindExecutables(string directory, string command) => new string[] { string.Empty }
+		.Concat(OperatingSystem.IsWindows() ? Extensions : [])
+		.Select(extension => Path.GetFullPath(Path.Join(directory, $"{command}{extension}")))
+		.Where(IsExecutable);
 }

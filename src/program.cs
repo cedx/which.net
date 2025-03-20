@@ -32,4 +32,4 @@ var program = new RootCommand("Find the instances of an executable in the system
 
 // Start the application.
 program.SetHandler(handler, commandArgument, allOption, silentOption);
-return program.Invoke(args);
+return await program.InvokeAsync(args);
