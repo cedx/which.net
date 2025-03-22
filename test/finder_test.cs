@@ -8,6 +8,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 [TestClass]
 public sealed class FinderTest {
 
+	/// <summary>
+	/// The path to the test fixtures.
+	/// </summary>
+	private readonly string fixtures = Path.GetFullPath(Path.Join(AppContext.BaseDirectory, "../res"));
+
 	[TestMethod]
 	public void Constructor() {
 		// It should set the `Paths` property to the value of the `PATH` environment variable by default.
@@ -26,7 +31,7 @@ public sealed class FinderTest {
 
 	[TestMethod]
 	public void Find() {
-		var finder = new Finder(paths: ["../res/fixtures"]);
+		var finder = new Finder(paths: [fixtures]);
 
 		// It should return the path of the `executable.cmd` file on Windows.
 		List<string> executables = [.. finder.Find("executable")];
@@ -52,9 +57,9 @@ public sealed class FinderTest {
 		IsFalse(finder.IsExecutable("res/not_executable.sh"));
 
 		// It should return `false` for a POSIX executable, when test is run on Windows.
-		AreEqual(!OperatingSystem.IsWindows(), finder.IsExecutable("../res/fixtures/executable.sh"));
+		AreEqual(!OperatingSystem.IsWindows(), finder.IsExecutable(Path.Join(fixtures, "executable.sh")));
 
 		// It should return `false` for a Windows executable, when test is run on POSIX.
-		AreEqual(OperatingSystem.IsWindows(), finder.IsExecutable("../res/fixtures/executable.cmd"));
+		AreEqual(OperatingSystem.IsWindows(), finder.IsExecutable(Path.Join(fixtures, "executable.cmd")));
 	}
 }
