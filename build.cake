@@ -36,6 +36,10 @@ Task("version")
 		WriteAllText(file.FullPath, pattern.Replace(ReadAllText(file.FullPath), $"<Version>{version}</Version>"));
 	});
 
+Task("watch")
+	.Description("Watches for file changes.")
+	.Does(() => StartProcess("dotnet", new ProcessSettings { Arguments = "watch build", WorkingDirectory = "src" }));
+
 Task("default")
 	.Description("The default task.")
 	.IsDependentOn("clean")
