@@ -53,6 +53,5 @@ RunTarget(target);
 /// <param name="pattern">The regular expression to find.</param>
 /// <param name="replacement">The replacement text.</param>
 /// <param name="options">The regular expression options to use.</param>
-void ReplaceInFile(FilePath file, [StringSyntax(StringSyntaxAttribute.Regex)] string pattern, string replacement, RegexOptions options = RegexOptions.None) {
+void ReplaceInFile(FilePath file, [StringSyntax(StringSyntaxAttribute.Regex)] string pattern, string replacement, RegexOptions options = RegexOptions.None) =>
 	WriteAllText(file.FullPath, Regex.Replace(ReadAllText(file.FullPath), pattern, replacement, options));
-}
