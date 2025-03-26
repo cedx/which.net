@@ -29,19 +29,19 @@ public class Finder {
 	public Finder(IEnumerable<string>? paths = null, IEnumerable<string>? extensions = null) {
 		paths ??= [];
 		if (!paths.Any()) {
-			var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? "";
+			var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? string.Empty;
 			paths = pathEnv.Length > 0 ? pathEnv.Split(Path.PathSeparator) : [];
 		}
 
 		extensions ??= [];
 		if (!extensions.Any()) {
-			var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? "";
+			var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? string.Empty;
 			extensions = pathExt.Length > 0 ? pathExt.Split(';') : [".exe", ".cmd", ".bat", ".com"];
 		}
 
 		var regex = new Regex(@"^""|""$");
 		Extensions = [.. extensions.Select(item => item.ToLowerInvariant()).Distinct()];
-		Paths = [.. paths.Select(item => regex.Replace(item, "")).Where(item => item.Length > 0).Distinct()];
+		Paths = [.. paths.Select(item => regex.Replace(item, string.Empty)).Where(item => item.Length > 0).Distinct()];
 	}
 
 	/// <summary>
