@@ -6,6 +6,7 @@
 		<File Path=".runsettings" />
 	</Folder>
 	<Folder Name="/build/">
+		<File Path=".github/workflows/ci.yaml" />
 		<File Path="build.cake" />
 		<File Path="cake.config" />
 		<File Path="run.ps1" />
