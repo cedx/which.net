@@ -1,9 +1,11 @@
+using Belin.Which;
 using System.CommandLine;
-using static Belin.Which.Finder;
 
 // The program handler.
 Func<string, bool, bool, Task<int>> handler = (command, all, silent) => {
-	var resultSet = Which(command);
+	var finder = new Finder();
+	var resultSet = new ResultSet(command, finder);
+
 	var executables = new List<string>();
 	if (all) executables.AddRange(resultSet.All);
 	else {
@@ -16,7 +18,7 @@ Func<string, bool, bool, Task<int>> handler = (command, all, silent) => {
 		return Task.FromResult(0);
 	}
 
-	if (!silent) Console.Error.WriteLine($"No \"{command}\" in ({string.Join(Path.PathSeparator, resultSet.Finder.Paths)}).");
+	if (!silent) Console.Error.WriteLine($"No \"{command}\" in ({string.Join(Path.PathSeparator, finder.Paths)}).");
 	return Task.FromResult(404);
 };
 
