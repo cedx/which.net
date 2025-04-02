@@ -8,7 +8,7 @@ var version = Context.Configuration.GetValue("package_version");
 
 Task("build")
 	.Description("Builds the project.")
-	.Does(() => DotNetBuild("src", new() { Configuration = release ? "Release" : "Debug" }));
+	.Does(() => DotNetBuild("which.slnx", new() { Configuration = release ? "Release" : "Debug" }));
 
 Task("clean")
 	.Description("Deletes all generated files.")
@@ -28,7 +28,7 @@ Task("publish")
 
 Task("test")
 	.Description("Runs the test suite.")
-	.Does(() => DotNetTest("test", new() { Settings = ".runsettings" }));
+	.Does(() => DotNetTest("which.slnx", new() { Settings = ".runsettings" }));
 
 Task("version")
 	.Description("Updates the version number in the sources.")
