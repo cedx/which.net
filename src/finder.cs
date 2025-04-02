@@ -84,7 +84,7 @@ public class Finder {
 	[UnsupportedOSPlatform("windows")]
 	private static bool CheckFilePermissions(string file) {
 		// Others.
-		var _ = Syscall.stat(file, out var stat);
+		_ = Syscall.stat(file, out var stat);
 		if ((stat.st_mode & FilePermissions.S_IXOTH) != 0) return true;
 
 		// Group.
