@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="../src/which.csproj" />
+	  <ProjectReference Include="../src/Which.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

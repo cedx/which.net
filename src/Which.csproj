@@ -10,7 +10,7 @@
 	<PropertyGroup>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<ApplicationIcon>program.ico</ApplicationIcon>
+		<ApplicationIcon>Program.ico</ApplicationIcon>
 		<AssemblyName>Belin.Which</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
