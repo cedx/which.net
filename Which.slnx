@@ -18,9 +18,9 @@
 		<File Path="README.md" />
 	</Folder>
 	<Folder Name="/example/">
-		<File Path="example/all.cs" />
-		<File Path="example/first.cs" />
-		<File Path="example/stream.cs" />
+		<File Path="example/All.cs" />
+		<File Path="example/First.cs" />
+		<File Path="example/Stream.cs" />
 	</Folder>
 	<Folder Name="/res/">
 		<File Path="res/executable.cmd" />
