@@ -34,7 +34,7 @@ public sealed class FinderTest {
 		var finder = new Finder(paths: [fixtures]);
 
 		// It should return the path of the `Executable.cmd` file on Windows.
-		List<string> executables = [.. finder.Find("executable")];
+		List<string> executables = [.. finder.Find("Executable")];
 		AreEqual(OperatingSystem.IsWindows() ? 1 : 0, executables.Count);
 		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executables.First(), @"res\Executable.cmd");
 

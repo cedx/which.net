@@ -18,7 +18,7 @@ public sealed class ResultSetTest {
 		var paths = new string[] { fixtures };
 
 		// It should return the path of the `Executable.cmd` file on Windows.
-		var executables = Which("executable", paths).All;
+		var executables = Which("Executable", paths).All;
 		if (!OperatingSystem.IsWindows()) AreEqual(0, executables.Length);
 		else {
 			AreEqual(1, executables.Length);
@@ -43,7 +43,7 @@ public sealed class ResultSetTest {
 		var paths = new string[] { fixtures };
 
 		// It should return the path of the `Executable.cmd` file on Windows.
-		var executable = Which("executable", paths).First;
+		var executable = Which("Executable", paths).First;
 		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executable, @"\res\Executable.cmd");
 		else IsNull(executable);
 
