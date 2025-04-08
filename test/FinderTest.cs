@@ -33,18 +33,18 @@ public sealed class FinderTest {
 	public void Find() {
 		var finder = new Finder(paths: [fixtures]);
 
-		// It should return the path of the `executable.cmd` file on Windows.
+		// It should return the path of the `Executable.cmd` file on Windows.
 		List<string> executables = [.. finder.Find("executable")];
 		AreEqual(OperatingSystem.IsWindows() ? 1 : 0, executables.Count);
-		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executables.First(), @"res\executable.cmd");
+		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executables.First(), @"res\Executable.cmd");
 
-		// It should return the path of the `executable.sh` file on POSIX.
-		executables = [.. finder.Find("executable.sh")];
+		// It should return the path of the `Executable.sh` file on POSIX.
+		executables = [.. finder.Find("Executable.sh")];
 		AreEqual(OperatingSystem.IsWindows() ? 0 : 1, executables.Count);
-		if (!OperatingSystem.IsWindows()) StringAssert.EndsWith(executables.First(), "res/executable.sh");
+		if (!OperatingSystem.IsWindows()) StringAssert.EndsWith(executables.First(), "res/Executable.sh");
 
 		// It should return an empty array if the searched command is not executable or not found.
-		AreEqual(0, finder.Find("not_executable.sh").Count());
+		AreEqual(0, finder.Find("NotExecutable.sh").Count());
 		AreEqual(0, finder.Find("foo").Count());
 	}
 
@@ -54,12 +54,12 @@ public sealed class FinderTest {
 
 		// It should return `false` if the searched command is not executable or not found.
 		IsFalse(finder.IsExecutable("foo/bar/baz.qux"));
-		IsFalse(finder.IsExecutable("res/not_executable.sh"));
+		IsFalse(finder.IsExecutable("res/NotExecutable.sh"));
 
 		// It should return `false` for a POSIX executable, when test is run on Windows.
-		AreEqual(!OperatingSystem.IsWindows(), finder.IsExecutable(Path.Join(fixtures, "executable.sh")));
+		AreEqual(!OperatingSystem.IsWindows(), finder.IsExecutable(Path.Join(fixtures, "Executable.sh")));
 
 		// It should return `false` for a Windows executable, when test is run on POSIX.
-		AreEqual(OperatingSystem.IsWindows(), finder.IsExecutable(Path.Join(fixtures, "executable.cmd")));
+		AreEqual(OperatingSystem.IsWindows(), finder.IsExecutable(Path.Join(fixtures, "Executable.cmd")));
 	}
 }
