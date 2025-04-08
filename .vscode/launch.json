@@ -1,0 +1,12 @@
+{
+	"$schema": "vscode://schemas/launch",
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Program",
+			"request": "launch",
+			"type": "dotnet",
+			"projectPath": "${workspaceFolder}/src/Which.csproj"
+		}
+	]
+}
