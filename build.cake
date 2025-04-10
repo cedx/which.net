@@ -25,7 +25,7 @@ Task("publish")
 	.WithCriteria(release, @"the ""Release"" configuration must be enabled")
 	.IsDependentOn("default")
 	.Does(() => DotNetPack("Which.slnx", new() { OutputDirectory = "var" }))
-	.Does(() => DotNetNuGetPush($"var/Belin.Which.{version}.nupkg", new() { ApiKey = EnvironmentVariable("NUGET_API_KEY") }))
+	.Does(() => DotNetNuGetPush($"var/Belin.Which.{version}.nupkg", new() { ApiKey = EnvironmentVariable("NUGET_API_KEY"), Source = "https://api.nuget.org/v3/index.json" }))
 	.DoesForEach(["tag", "push origin"], action => StartProcess("git", $"{action} v{version}"));
 
 Task("test")
