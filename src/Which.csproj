@@ -8,6 +8,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
+		<Authors>CedX</Authors>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageTags>find;path;system;utility;which</PackageTags>
+		<RepositoryUrl>https://github.com/cedx/which.net.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<ApplicationIcon>Program.ico</ApplicationIcon>
@@ -19,6 +27,10 @@
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../README.md" Pack="true" PackagePath="/" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Mono.Unix" Version="7.*-*" />
