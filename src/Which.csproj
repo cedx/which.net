@@ -9,10 +9,12 @@
 
 	<PropertyGroup>
 		<Authors>CedX</Authors>
+		<IncludeSymbols>true</IncludeSymbols>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>find;path;system;utility;which</PackageTags>
 		<RepositoryUrl>https://github.com/cedx/which.net.git</RepositoryUrl>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<PropertyGroup>
