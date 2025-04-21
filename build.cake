@@ -25,9 +25,9 @@ Task("publish")
 	.WithCriteria(release, @"the ""Release"" configuration must be enabled")
 	.IsDependentOn("default")
 	.Does(() => DotNetPack("Which.slnx", new() { OutputDirectory = "var" }))
+	.DoesForEach(["tag", "push origin"], action => StartProcess("git", $"{action} v{version}"))
 	.DoesForEach(() => GetFiles("var/*.nupkg"), file => DotNetNuGetPush(file, new() { ApiKey = EnvironmentVariable("NUGET_API_KEY"), Source = "https://api.nuget.org/v3/index.json" }))
-	.DoesForEach(() => GetFiles("var/*.nupkg"), file => DotNetNuGetPush(file, new() { ApiKey = EnvironmentVariable("GITHUB_TOKEN"), Source = "https://nuget.pkg.github.com/cedx/index.json" }))
-	.DoesForEach(["tag", "push origin"], action => StartProcess("git", $"{action} v{version}"));
+	.DoesForEach(() => GetFiles("var/*.nupkg"), file => DotNetNuGetPush(file, new() { ApiKey = EnvironmentVariable("GITHUB_TOKEN"), Source = "https://nuget.pkg.github.com/cedx/index.json" }));
 
 Task("test")
 	.Description("Runs the test suite.")
