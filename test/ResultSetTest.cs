@@ -19,23 +19,23 @@ public sealed class ResultSetTest {
 
 		// It should return the path of the `Executable.cmd` file on Windows.
 		var executables = Which("Executable", paths).All;
-		if (!OperatingSystem.IsWindows()) AreEqual(0, executables.Length);
+		if (!OperatingSystem.IsWindows()) IsEmpty(executables);
 		else {
-			AreEqual(1, executables.Length);
+			HasCount(1, executables);
 			StringAssert.EndsWith(executables[0], @"\res\Executable.cmd");
 		}
 
 		// It should return the path of the `Executable.sh` file on POSIX.
 		executables = Which("Executable.sh", paths).All;
-		if (OperatingSystem.IsWindows()) AreEqual(0, executables.Length);
+		if (OperatingSystem.IsWindows()) IsEmpty(executables);
 		else {
-			AreEqual(1, executables.Length);
+			HasCount(1, executables);
 			StringAssert.EndsWith(executables[0], "/res/Executable.sh");
 		}
 
 		// It should return an empty array if the searched command is not executable or not found.
-		AreEqual(0, Which("NotExecutable.sh", paths).All.Length);
-		AreEqual(0, Which("foo", paths).All.Length);
+		IsEmpty(Which("NotExecutable.sh", paths).All);
+		IsEmpty(Which("foo", paths).All);
 	}
 
 	[TestMethod]

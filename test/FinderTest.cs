@@ -35,17 +35,17 @@ public sealed class FinderTest {
 
 		// It should return the path of the `Executable.cmd` file on Windows.
 		List<string> executables = [.. finder.Find("Executable")];
-		AreEqual(OperatingSystem.IsWindows() ? 1 : 0, executables.Count);
+		HasCount(OperatingSystem.IsWindows() ? 1 : 0, executables);
 		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executables.First(), @"res\Executable.cmd");
 
 		// It should return the path of the `Executable.sh` file on POSIX.
 		executables = [.. finder.Find("Executable.sh")];
-		AreEqual(OperatingSystem.IsWindows() ? 0 : 1, executables.Count);
+		HasCount(OperatingSystem.IsWindows() ? 0 : 1, executables);
 		if (!OperatingSystem.IsWindows()) StringAssert.EndsWith(executables.First(), "res/Executable.sh");
 
 		// It should return an empty array if the searched command is not executable or not found.
-		AreEqual(0, finder.Find("NotExecutable.sh").Count());
-		AreEqual(0, finder.Find("foo").Count());
+		IsEmpty(finder.Find("NotExecutable.sh"));
+		IsEmpty(finder.Find("foo"));
 	}
 
 	[TestMethod]
