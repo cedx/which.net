@@ -22,7 +22,7 @@ Task("format")
 
 Task("outdated")
 	.Description("Checks for outdated dependencies.")
-	.Does(() => DotNetListPackage("Akismet.slnx", new() { Outdated = true }));
+	.Does(() => DotNetListPackage("Which.slnx", new() { Outdated = true }));
 
 Task("publish")
 	.Description("Publishes the package.")
