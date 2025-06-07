@@ -20,6 +20,10 @@ Task("format")
 	.Description("Formats the source code.")
 	.DoesForEach(["src", "test"], project => DotNetFormat(project));
 
+Task("outdated")
+	.Description("Checks for outdated dependencies.")
+	.Does(() => DotNetListPackage("Akismet.slnx", new() { Outdated = true }));
+
 Task("publish")
 	.Description("Publishes the package.")
 	.WithCriteria(release, @"the ""Release"" configuration must be enabled")
