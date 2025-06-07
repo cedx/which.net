@@ -22,7 +22,7 @@ Task("format")
 
 Task("outdated")
 	.Description("Checks for outdated dependencies.")
-	.Does(() => DotNetListPackage("Which.slnx", new() { Outdated = true }));
+	.Does(() => StartProcess("dotnet", new ProcessSettings { Arguments = "list package --outdated" }));
 
 Task("publish")
 	.Description("Publishes the package.")
