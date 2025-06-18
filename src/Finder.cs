@@ -9,7 +9,14 @@ using System.Text.RegularExpressions;
 /// <summary>
 /// Finds the instances of an executable in the system path.
 /// </summary>
-public class Finder {
+public partial class Finder {
+
+	/// <summary>
+	/// Gets the regular expression used to remove quotation marks from a path.
+	/// </summary>
+	/// <returns>The regular expression used to remove quotation marks from a path.</returns>
+	[GeneratedRegex(@"^""|""$")]
+	private static partial Regex QuotePattern();
 
 	/// <summary>
 	/// The list of executable file extensions.
@@ -39,7 +46,7 @@ public class Finder {
 			extensions = pathExt.Length > 0 ? pathExt.Split(';') : [".exe", ".cmd", ".bat", ".com"];
 		}
 
-		var regex = new Regex(@"^""|""$");
+		var regex = QuotePattern();
 		Extensions = [.. extensions.Select(item => item.ToLowerInvariant()).Distinct()];
 		Paths = [.. paths.Select(item => regex.Replace(item, string.Empty)).Where(item => item.Length > 0).Distinct()];
 	}
