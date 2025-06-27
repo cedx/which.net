@@ -21,12 +21,12 @@ public partial class Finder {
 	/// <summary>
 	/// The list of executable file extensions.
 	/// </summary>
-	public IList<string> Extensions { get; private set; }
+	public IList<string> Extensions { get; }
 
 	/// <summary>
 	/// The list of system paths.
 	/// </summary>
-	public IList<string> Paths { get; private set; }
+	public IList<string> Paths { get; }
 
 	/// <summary>
 	/// Creates a new finder.
