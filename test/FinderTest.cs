@@ -15,14 +15,16 @@ public sealed class FinderTest {
 
 	[TestMethod]
 	public void Constructor() {
+		var splitOptions = StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries;
+
 		// It should set the `Paths` property to the value of the `PATH` environment variable by default.
 		var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? string.Empty;
-		List<string> paths = pathEnv.Length > 0 ? [.. pathEnv.Split(Path.PathSeparator).Where(item => item.Length > 0).Distinct()] : [];
+		List<string> paths = pathEnv.Length > 0 ? [.. pathEnv.Split(Path.PathSeparator, splitOptions).Distinct()] : [];
 		CollectionAssert.AreEqual(paths, new Finder().Paths.ToList());
 
 		// It should set the `Extensions` property to the value of the `PATHEXT` environment variable by default.
 		var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? string.Empty;
-		List<string> extensions = pathExt.Length > 0 ? [.. pathExt.Split(';').Select(item => item.ToLowerInvariant()).Distinct()] : [".exe", ".cmd", ".bat", ".com"];
+		List<string> extensions = pathExt.Length > 0 ? [.. pathExt.Split(';', splitOptions).Select(item => item.ToLowerInvariant()).Distinct()] : [".exe", ".cmd", ".bat", ".com"];
 		CollectionAssert.AreEqual(extensions, new Finder().Extensions.ToList());
 
 		// It should put in lower case the list of file extensions.

@@ -34,21 +34,23 @@ public partial class Finder {
 	/// <param name="paths">The list of system paths.</param>
 	/// <param name="extensions">The list of executable file extensions.</param>
 	public Finder(IEnumerable<string>? paths = null, IEnumerable<string>? extensions = null) {
+		var splitOptions = StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries;
+
 		paths ??= [];
 		if (!paths.Any()) {
 			var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? string.Empty;
-			paths = pathEnv.Length > 0 ? pathEnv.Split(Path.PathSeparator) : [];
+			paths = pathEnv.Length > 0 ? pathEnv.Split(Path.PathSeparator, splitOptions) : [];
 		}
 
 		extensions ??= [];
 		if (!extensions.Any()) {
 			var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? string.Empty;
-			extensions = pathExt.Length > 0 ? pathExt.Split(';') : [".exe", ".cmd", ".bat", ".com"];
+			extensions = pathExt.Length > 0 ? pathExt.Split(';', splitOptions) : [".exe", ".cmd", ".bat", ".com"];
 		}
 
 		var regex = QuotePattern();
 		Extensions = [.. extensions.Select(item => item.ToLowerInvariant()).Distinct()];
-		Paths = [.. paths.Select(item => regex.Replace(item, string.Empty)).Where(item => item.Length > 0).Distinct()];
+		Paths = [.. paths.Select(item => regex.Replace(item, string.Empty)).Distinct()];
 	}
 
 	/// <summary>
