@@ -39,7 +39,7 @@ Task("test")
 
 Task("version")
 	.Description("Updates the version number in the sources.")
-	.DoesForEach(GetFiles("*/*.csproj"), file => ReplaceInFile(file, @"<Version>\d+(\.\d+){2}</Version>", $"<Version>{version}</Version>"));
+	.DoesForEach(GetFiles("*/*.csproj"), file => ReplaceInFile(file, @"<Version>\d+(\.\d+){2}.*</Version>", $"<Version>{version}</Version>"));
 
 Task("watch")
 	.Description("Watches for file changes.")
