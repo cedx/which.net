@@ -36,6 +36,6 @@
 
 	<ItemGroup>
 		<PackageReference Include="Mono.Unix" Version="7.*-*" />
-		<PackageReference Include="System.CommandLine" Version="2.*-beta4.*" />
+		<PackageReference Include="System.CommandLine" Version="2.*-*" />
 	</ItemGroup>
 </Project>
