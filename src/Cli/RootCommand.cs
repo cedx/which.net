@@ -41,7 +41,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	/// <summary>
 	/// Invokes this command.
 	/// </summary>
-	/// <param name="parseResult">The results of parsing the command-line input.</param>
+	/// <param name="parseResult">The results of parsing the command line input.</param>
 	/// <returns>The exit code.</returns>
 	public int Invoke(ParseResult parseResult) {
 		var command = parseResult.GetValue(commandArgument)!;
@@ -68,7 +68,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	/// <summary>
 	/// Invokes this command.
 	/// </summary>
-	/// <param name="parseResult">The results of parsing the command-line input.</param>
+	/// <param name="parseResult">The results of parsing the command line input.</param>
 	/// <param name="_">The token to cancel the operation.</param>
 	/// <returns>The exit code.</returns>
 	public Task<int> InvokeAsync(ParseResult parseResult, CancellationToken _) => Task.FromResult(Invoke(parseResult));
