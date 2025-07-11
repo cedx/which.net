@@ -5,7 +5,7 @@ using System.CommandLine;
 /// <summary>
 /// Finds the instances of an executable in the system path.
 /// </summary>
-public class RootCommand: System.CommandLine.RootCommand {
+internal class RootCommand: System.CommandLine.RootCommand {
 
 	/// <summary>
 	/// The name of the executable to find.
