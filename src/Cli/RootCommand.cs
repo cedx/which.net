@@ -44,7 +44,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	/// <param name="parseResult">The results of parsing the command line input.</param>
 	/// <returns>The exit code.</returns>
 	public int Invoke(ParseResult parseResult) {
-		var command = parseResult.GetValue(commandArgument)!;
+		var command = parseResult.GetRequiredValue(commandArgument);
 		var finder = new Finder();
 		var resultSet = new ResultSet(command, finder);
 
