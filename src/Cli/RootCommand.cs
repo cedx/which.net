@@ -35,7 +35,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 		Add(commandArgument);
 		Add(allOption);
 		Add(silentOption);
-		SetAction(Invoke);
+		SetAction(InvokeAsync);
 	}
 
 	/// <summary>
@@ -69,7 +69,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	/// Invokes this command.
 	/// </summary>
 	/// <param name="parseResult">The results of parsing the command line input.</param>
-	/// <param name="_">The token to cancel the operation.</param>
+	/// <param name="cancellationToken">The token to cancel the operation.</param>
 	/// <returns>The exit code.</returns>
-	public Task<int> InvokeAsync(ParseResult parseResult, CancellationToken _) => Task.FromResult(Invoke(parseResult));
+	public Task<int> InvokeAsync(ParseResult parseResult, CancellationToken cancellationToken) => Task.FromResult(Invoke(parseResult));
 }
