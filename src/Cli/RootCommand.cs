@@ -32,9 +32,9 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	/// Creates a new root command.
 	/// </summary>
 	public RootCommand(): base("Find the instances of an executable in the system path.") {
-		Add(commandArgument);
-		Add(allOption);
-		Add(silentOption);
+		Arguments.Add(commandArgument);
+		Options.Add(allOption);
+		Options.Add(silentOption);
 		SetAction(InvokeAsync);
 	}
 
