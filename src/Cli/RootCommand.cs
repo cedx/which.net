@@ -35,7 +35,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 		Arguments.Add(commandArgument);
 		Options.Add(allOption);
 		Options.Add(silentOption);
-		SetAction(InvokeAsync);
+		SetAction(Invoke);
 	}
 
 	/// <summary>
@@ -64,12 +64,4 @@ internal class RootCommand: System.CommandLine.RootCommand {
 		if (!silent) Console.Error.WriteLine($"No \"{command}\" in ({string.Join(Path.PathSeparator, finder.Paths)}).");
 		return 404;
 	}
-
-	/// <summary>
-	/// Invokes this command.
-	/// </summary>
-	/// <param name="parseResult">The results of parsing the command line input.</param>
-	/// <param name="cancellationToken">The token to cancel the operation.</param>
-	/// <returns>The exit code.</returns>
-	public Task<int> InvokeAsync(ParseResult parseResult, CancellationToken cancellationToken) => Task.FromResult(Invoke(parseResult));
 }
