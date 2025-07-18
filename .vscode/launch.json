@@ -1,0 +1,20 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Program",
+			"preLaunchTask": "build",
+			"request": "launch",
+			"type": "coreclr",
+			"program": "${workspaceFolder}/bin/Belin.Which.dll",
+			"args": ["${input:command}"]
+		}
+	],
+	"inputs": [
+		{
+			"description": "The name of the executable to find.",
+			"id": "command",
+			"type": "promptString"
+		}
+	]
+}
