@@ -3,7 +3,7 @@
 	"configurations": [
 		{
 			"name": "Program",
-			"preLaunchTask": "build",
+			"preLaunchTask": "Debug",
 			"request": "launch",
 			"type": "coreclr",
 			"program": "${workspaceFolder}/bin/Belin.Which.dll",
