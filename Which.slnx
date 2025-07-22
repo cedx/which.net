@@ -1,28 +1,4 @@
 <Solution>
-	<Folder Name="/.config/">
-		<File Path=".editorconfig" />
-		<File Path=".gitattributes" />
-		<File Path=".gitignore" />
-		<File Path=".runsettings" />
-	</Folder>
-	<Folder Name="/bin/">
-		<File Path="run.ps1" />
-	</Folder>
-	<Folder Name="/build/">
-		<File Path="build.cake" />
-		<File Path="cake.config" />
-	</Folder>
-	<Folder Name="/doc/">
-		<File Path="Authors.txt" />
-		<File Path="ChangeLog.md" />
-		<File Path="License.md" />
-		<File Path="ReadMe.md" />
-	</Folder>
-	<Folder Name="/example/">
-		<File Path="example/All.cs" />
-		<File Path="example/First.cs" />
-		<File Path="example/Stream.cs" />
-	</Folder>
 	<Project Path="src/Which.csproj" />
 	<Project Path="test/Which.Tests.csproj">
 		<Build Solution="Release|*" Project="false" />
