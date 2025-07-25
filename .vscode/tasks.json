@@ -5,7 +5,7 @@
 			"label": "Debug",
 			"type": "shell",
 			"command": "cake",
-			"args": ["--target", "build"],
+			"args": ["--target=build"],
 			"problemMatcher": "$msCompile"
 		}
 	]
