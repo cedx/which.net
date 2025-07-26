@@ -12,7 +12,4 @@ jobs:
         with:
           dotnet-version: 9
       - name: Run tests
-        run: |
-          echo $PATH
-          echo $PATHEXT
-          dotnet test
+        run: dotnet test
