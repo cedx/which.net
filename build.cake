@@ -33,12 +33,19 @@ Task("publish")
 	.DoesForEach(() => GetFiles("var/*.nupkg"), file => DotNetNuGetPush(file, new() { ApiKey = EnvironmentVariable("NUGET_API_KEY"), Source = "https://api.nuget.org/v3/index.json" }))
 	.DoesForEach(() => GetFiles("var/*.nupkg"), file => DotNetNuGetPush(file, new() { ApiKey = EnvironmentVariable("GITHUB_TOKEN"), Source = "https://nuget.pkg.github.com/cedx/index.json" }));
 
+Task("setup")
+	.Description("Builds the Windows installer.")
+	.WithCriteria(release, @"the ""Release"" configuration must be enabled")
+	.IsDependentOn("default")
+	.Does(() => InnoSetup("Setup.iss"));
+
 Task("test")
 	.Description("Runs the test suite.")
 	.Does(() => DotNetTest("Which.slnx", new() { Settings = ".runsettings" }));
 
 Task("version")
 	.Description("Updates the version number in the sources.")
+	.Does(() => ReplaceInFile("Setup.iss", @"version ""\d+(\.\d+){2}""", $"version \"{version}\""))
 	.DoesForEach(GetFiles("*/*.csproj"), file => ReplaceInFile(file, @"<Version>\d+(\.\d+){2}.*</Version>", $"<Version>{version}</Version>"));
 
 Task("watch")
