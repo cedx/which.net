@@ -1,6 +1,6 @@
 #define executable "Belin.Which.exe"
 #define publisher "Belin.io"
-#define "Which for .NET"
+#define name "Which for .NET"
 #define version "1.0.0-rc.3"
 
 [Setup]
