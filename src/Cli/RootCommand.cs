@@ -10,9 +10,9 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	/// <summary>
 	/// The name of the executable to find.
 	/// </summary>
-	private readonly Argument<string> commandArgument = new("command") {
+	private readonly Argument<string> commandArgument = new Argument<string>("command") {
 		Description = "The name of the executable to find."
-	};
+	}.AcceptLegalFileNamesOnly();
 
 	/// <summary>
 	/// Value indicating whether to list all executable instances found.
