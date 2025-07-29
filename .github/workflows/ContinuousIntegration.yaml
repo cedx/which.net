@@ -12,4 +12,6 @@ jobs:
         with:
           dotnet-version: 9
       - name: Run tests
-        run: dotnet test
+        uses: cake-build/cake-action@v3
+        with:
+          target: test
