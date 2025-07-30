@@ -1,7 +1,7 @@
 #define executable "Belin.Which.exe"
 #define publisher "Belin.io"
 #define name "Which for .NET"
-#define version "1.0.0-rc.3"
+#define version "1.0.0-rc3"
 
 [Setup]
 AppCopyright = © Cédric Belin
