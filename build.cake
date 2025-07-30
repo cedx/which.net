@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using static System.IO.File;
 
 var release = HasArgument("r") || HasArgument("release");
-var target = Argument<string>("t", null) ?? Argument("target", "default");
+var target = HasArgument("t") ? Argument<string>("t") : Argument("target", "default");
 var version = Context.Configuration.GetValue("package_version");
 
 Task("build")
