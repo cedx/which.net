@@ -1,28 +1,27 @@
-#define executable "Belin.Which.exe"
+#define module "Which"
 #define publisher "Belin.io"
-#define name "Which for .NET"
 #define version "1.0.0-rc3"
 
 [Setup]
 AppCopyright = © Cédric Belin
 AppId = {{77278EEC-2915-4E3E-BF29-9385C8E9F24F}
-AppName = {#name}
+AppName = Which for .NET
 AppPublisher = {#publisher}
 AppPublisherURL = https://belin.io
 AppVersion = {#version}
 ArchitecturesAllowed = x64compatible
 ArchitecturesInstallIn64BitMode = x64compatible
 ChangesEnvironment = yes
-DefaultDirName = {autopf}\{#publisher}\Which
+DefaultDirName = {autopf}\{#publisher}\{#module}
 DisableProgramGroupPage = yes
 LicenseFile = License.md
-OutputBaseFilename = {#name} {#version}
+OutputBaseFilename = which-{#version}
 OutputDir = var
 PrivilegesRequired = lowest
 PrivilegesRequiredOverridesAllowed = dialog
 SetupIconFile = src\Program.ico
 SolidCompression = yes
-UninstallDisplayIcon = {app}\lib\{#executable}
+UninstallDisplayIcon = {app}\lib\Belin.{#module}.exe
 WizardStyle = modern
 
 [Files]
