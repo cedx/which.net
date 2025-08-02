@@ -21,12 +21,12 @@ PrivilegesRequired = lowest
 PrivilegesRequiredOverridesAllowed = dialog
 SetupIconFile = src\Program.ico
 SolidCompression = yes
-UninstallDisplayIcon = {app}\lib\Belin.{#module}.exe
+UninstallDisplayIcon = {app}\bin\Belin.{#module}.exe
 WizardStyle = modern
 
 [Files]
 Source: "*.md"; DestDir: "{app}"; Flags: ignoreversion
-Source: "lib\*"; DestDir: "{app}\lib"; Excludes: "*.pdb"; Flags: ignoreversion recursesubdirs
+Source: "bin\*"; DestDir: "{app}\bin"; Excludes: "*.pdb"; Flags: ignoreversion recursesubdirs
 
 [Tasks]
 Name: addProgramToPath; Description: "Add the program to the PATH environment variable"
@@ -71,5 +71,5 @@ end;
 { Procedure invoked when the current step of the wizard changes. }
 procedure CurStepChanged(Step: TSetupStep);
 begin
-	if (Step = ssPostInstall) and WizardIsTaskSelected('addProgramToPath') then AddPathToEnvironment(ExpandConstant('{app}\lib'));
+	if (Step = ssPostInstall) and WizardIsTaskSelected('addProgramToPath') then AddPathToEnvironment(ExpandConstant('{app}\bin'));
 end;

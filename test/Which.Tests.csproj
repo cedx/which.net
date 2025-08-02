@@ -12,7 +12,7 @@
 		<BaseOutputPath>obj</BaseOutputPath>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<OutDir>../lib</OutDir>
+		<OutDir>../bin</OutDir>
 		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
