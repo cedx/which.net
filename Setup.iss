@@ -22,12 +22,12 @@ PrivilegesRequired = lowest
 PrivilegesRequiredOverridesAllowed = dialog
 SetupIconFile = src\Program.ico
 SolidCompression = yes
-UninstallDisplayIcon = {app}\bin\{#executable}
+UninstallDisplayIcon = {app}\lib\{#executable}
 WizardStyle = modern
 
 [Files]
 Source: "*.md"; DestDir: "{app}"; Flags: ignoreversion
-Source: "bin\*"; DestDir: "{app}\bin"; Excludes: "*.pdb"; Flags: ignoreversion recursesubdirs
+Source: "lib\*"; DestDir: "{app}\lib"; Excludes: "*.pdb"; Flags: ignoreversion recursesubdirs
 
 [Tasks]
 Name: addProgramToPath; Description: "Add the program to the PATH environment variable"
@@ -72,5 +72,5 @@ end;
 { Procedure invoked when the current step of the wizard changes. }
 procedure CurStepChanged(Step: TSetupStep);
 begin
-	if (Step = ssPostInstall) and WizardIsTaskSelected('addProgramToPath') then AddPathToEnvironment(ExpandConstant('{app}\bin'));
+	if (Step = ssPostInstall) and WizardIsTaskSelected('addProgramToPath') then AddPathToEnvironment(ExpandConstant('{app}\lib'));
 end;

@@ -1,6 +1,6 @@
 /**/*.user
 /.idea/
 /.vs/
-/bin/
+/lib/
 /*/obj/
 /var/

@@ -6,7 +6,7 @@
 			"preLaunchTask": "Debug",
 			"request": "launch",
 			"type": "coreclr",
-			"program": "${workspaceFolder}/bin/Belin.Which.dll",
+			"program": "${workspaceFolder}/lib/Belin.Which.dll",
 			"args": ["${input:command}"]
 		}
 	],
