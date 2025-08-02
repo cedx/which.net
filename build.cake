@@ -12,7 +12,7 @@ Task("build")
 
 Task("clean")
 	.Description("Deletes all generated files.")
-	.Does(() => EnsureDirectoryDoesNotExist("lib"))
+	.Does(() => EnsureDirectoryDoesNotExist("bin"))
 	.DoesForEach(GetDirectories("*/obj"), EnsureDirectoryDoesNotExist)
 	.Does(() => CleanDirectory("var", fileSystemInfo => fileSystemInfo.Path.Segments[^1] != ".gitkeep"));
 
