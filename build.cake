@@ -18,7 +18,7 @@ Task("clean")
 
 Task("format")
 	.Description("Formats the source code.")
-	.DoesForEach(["src", "test"], project => DotNetFormat(project));
+	.DoesForEach(["src", "test"], DotNetFormat);
 
 Task("outdated")
 	.Description("Checks for outdated dependencies.")
