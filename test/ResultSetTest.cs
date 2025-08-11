@@ -63,7 +63,7 @@ public sealed class ResultSetTest {
 
 		// It should return the path of the `Executable.cmd` file on Windows.
 		var found = false;
-		foreach (var executable in Which("Executable", paths)) if (OperatingSystem.IsWindows()) {
+		foreach (var executable in Which("Executable", paths)) {
 			EndsWith(@"\res\Executable.cmd", executable);
 			found = true;
 		}
@@ -72,7 +72,7 @@ public sealed class ResultSetTest {
 
 		// It should return the path of the `Executable.sh` file on POSIX.
 		found = false;
-		foreach (var executable in Which("Executable", paths)) if (!OperatingSystem.IsWindows()) {
+		foreach (var executable in Which("Executable.sh", paths)) {
 			EndsWith("/res/Executable.sh", executable);
 			found = true;
 		}
