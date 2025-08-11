@@ -22,7 +22,7 @@ public sealed class ResultSetTest {
 		if (!OperatingSystem.IsWindows()) IsEmpty(executables);
 		else {
 			HasCount(1, executables);
-			StringAssert.EndsWith(executables[0], @"\res\Executable.cmd");
+			EndsWith(@"\res\Executable.cmd", executables[0]);
 		}
 
 		// It should return the path of the `Executable.sh` file on POSIX.
@@ -30,7 +30,7 @@ public sealed class ResultSetTest {
 		if (OperatingSystem.IsWindows()) IsEmpty(executables);
 		else {
 			HasCount(1, executables);
-			StringAssert.EndsWith(executables[0], "/res/Executable.sh");
+			EndsWith("/res/Executable.sh", executables[0]);
 		}
 
 		// It should return an empty array if the searched command is not executable or not found.
@@ -44,16 +44,48 @@ public sealed class ResultSetTest {
 
 		// It should return the path of the `Executable.cmd` file on Windows.
 		var executable = Which("Executable", paths).First;
-		if (OperatingSystem.IsWindows()) StringAssert.EndsWith(executable, @"\res\Executable.cmd");
+		if (OperatingSystem.IsWindows()) EndsWith(@"\res\Executable.cmd", executable);
 		else IsNull(executable);
 
 		// It should return the path of the `Executable.sh` file on POSIX.
 		executable = Which("Executable.sh", paths).First;
 		if (OperatingSystem.IsWindows()) IsNull(executable);
-		else StringAssert.EndsWith(executable, "/res/Executable.sh");
+		else EndsWith("/res/Executable.sh", executable);
 
-		// It should return an empty string if the searched command is not executable or not found.
+		// It should return `null` if the searched command is not executable or not found.
 		IsNull(Which("NotExecutable.sh", paths).First);
 		IsNull(Which("foo", paths).First);
+	}
+
+	[TestMethod]
+	public void GetEnumerator() {
+		var paths = new string[] { fixtures };
+
+		// It should return the path of the `Executable.cmd` file on Windows.
+		var found = false;
+		foreach (var executable in Which("Executable", paths)) if (OperatingSystem.IsWindows()) {
+			EndsWith(@"\res\Executable.cmd", executable);
+			found = true;
+		}
+
+		AreEqual(OperatingSystem.IsWindows(), found);
+
+		// It should return the path of the `Executable.sh` file on POSIX.
+		found = false;
+		foreach (var executable in Which("Executable", paths)) if (!OperatingSystem.IsWindows()) {
+			EndsWith("/res/Executable.sh", executable);
+			found = true;
+		}
+
+		AreEqual(!OperatingSystem.IsWindows(), found);
+
+		// It should return an empty string if the searched command is not executable or not found.
+		found = false;
+		foreach (var executable in Which("NotExecutable.sh", paths)) found = true;
+		IsFalse(found);
+
+		found = false;
+		foreach (var executable in Which("foo", paths)) found = true;
+		IsFalse(found);
 	}
 }
