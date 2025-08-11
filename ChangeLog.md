@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [1.0.0-rc4](https://github.com/cedx/which.net/compare/v1.0.0-rc3...v1.0.0-rc4)
+- Removed the `ResultSet.Stream` property.
+- The `ResultSet` class now implements the `IEnumerable<string>` interface.
+
 ## Version [1.0.0-rc3](https://github.com/cedx/which.net/compare/v1.0.0-rc2...v1.0.0-rc3)
 - Added the `RootCommand` class.
 - Updated the package dependencies.
