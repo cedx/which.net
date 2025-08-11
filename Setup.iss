@@ -1,6 +1,6 @@
 #define module "Which"
 #define publisher "Belin.io"
-#define version "1.0.0-rc3"
+#define version "1.0.0-rc4"
 
 [Setup]
 AppCopyright = © Cédric Belin
