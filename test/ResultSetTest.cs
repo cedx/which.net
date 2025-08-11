@@ -79,13 +79,13 @@ public sealed class ResultSetTest {
 
 		AreEqual(!OperatingSystem.IsWindows(), found);
 
-		// It should return an empty string if the searched command is not executable or not found.
+		// It should not return any result if the searched command is not executable or not found.
 		found = false;
-		foreach (var executable in Which("NotExecutable.sh", paths)) found = true;
+		foreach (var _ in Which("NotExecutable.sh", paths)) found = true;
 		IsFalse(found);
 
 		found = false;
-		foreach (var executable in Which("foo", paths)) found = true;
+		foreach (var _ in Which("foo", paths)) found = true;
 		IsFalse(found);
 	}
 }
