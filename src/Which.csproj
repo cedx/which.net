@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<Company>Belin.io</Company>
+		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
 		<Description>Find the instances of an executable in the system path. Like the `which` Linux command.</Description>
 		<Product>Which for .NET</Product>

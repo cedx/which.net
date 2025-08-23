@@ -1,5 +1,5 @@
 #define module "Which"
-#define publisher "Belin.io"
+#define publisher "Cedric-Belin.fr"
 #define version "1.0.0-rc4"
 
 [Setup]
