@@ -4,9 +4,8 @@
 		{
 			"label": "Build",
 			"type": "shell",
-			"command": "cake",
-			"args": ["--target=build"],
-			"problemMatcher": "$msCompile"
+			"command": "./run.ps1",
+			"args": ["Build"]
 		}
 	]
 }

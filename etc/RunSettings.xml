@@ -5,6 +5,6 @@
 		</Parallelize>
 	</MSTest>
 	<RunConfiguration>
-		<ResultsDirectory>var</ResultsDirectory>
+		<ResultsDirectory>../var</ResultsDirectory>
 	</RunConfiguration>
 </RunSettings>
