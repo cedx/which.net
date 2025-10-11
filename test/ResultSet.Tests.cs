@@ -6,7 +6,7 @@ using static Belin.Which.Finder;
 /// Tests the features of the <see cref="ResultSet"/> class.
 /// </summary>
 [TestClass]
-public sealed class ResultSetTest {
+public sealed class ResultSetTests {
 
 	/// <summary>
 	/// The path to the test fixtures.

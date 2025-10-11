@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 /// Tests the features of the <see cref="Finder"/> class.
 /// </summary>
 [TestClass]
-public sealed class FinderTest {
+public sealed class FinderTests {
 
 	/// <summary>
 	/// The path to the test fixtures.
