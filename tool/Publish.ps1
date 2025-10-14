@@ -1,7 +1,7 @@
 . $PSScriptRoot/Clean.ps1
 . $PSScriptRoot/Version.ps1
 
-Write-Output "Publishing the package..."
+"Publishing the package..."
 $version = (Import-PowerShellDataFile "Which.psd1").ModuleVersion
 git tag "v$version"
 git push origin "v$version"

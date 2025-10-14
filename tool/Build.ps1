@@ -1,3 +1,3 @@
-Write-Output "Building the project..."
+"Building the project..."
 $configuration = $release ? "Release" : "Debug"
 dotnet build Which.slnx --configuration=$configuration
