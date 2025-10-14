@@ -24,7 +24,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	/// <summary>
 	/// Value indicating whether to silence the output.
 	/// </summary>
-	private readonly Option<bool> silentOption = new("--silent", ["-s"]) {
+	private readonly Option<bool> quietOption = new("--quiet", ["-q"]) {
 		Description = "Silence the output, just return the exit code (0 if any executable is found, otherwise 404)."
 	};
 
@@ -34,7 +34,7 @@ internal class RootCommand: System.CommandLine.RootCommand {
 	public RootCommand(): base("Find the instances of an executable in the system path.") {
 		Arguments.Add(commandArgument);
 		Options.Add(allOption);
-		Options.Add(silentOption);
+		Options.Add(quietOption);
 		SetAction(Invoke);
 	}
 
@@ -55,13 +55,13 @@ internal class RootCommand: System.CommandLine.RootCommand {
 			if (executable is not null) executables.Add(executable);
 		}
 
-		var silent = parseResult.GetValue(silentOption);
+		var quiet = parseResult.GetValue(quietOption);
 		if (executables.Count > 0) {
-			if (!silent) Console.WriteLine(string.Join(Environment.NewLine, executables));
+			if (!quiet) Console.WriteLine(string.Join(Environment.NewLine, executables));
 			return 0;
 		}
 
-		if (!silent) Console.Error.WriteLine($"No \"{command}\" in ({string.Join(Path.PathSeparator, finder.Paths)}).");
+		if (!quiet) Console.Error.WriteLine($"No \"{command}\" in ({string.Join(Path.PathSeparator, finder.Paths)}).");
 		return 404;
 	}
 }
