@@ -38,19 +38,19 @@ public partial class Finder {
 
 		paths ??= [];
 		if (!paths.Any()) {
-			var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? string.Empty;
+			var pathEnv = Environment.GetEnvironmentVariable("PATH") ?? "";
 			paths = pathEnv.Length > 0 ? pathEnv.Split(Path.PathSeparator, splitOptions) : [];
 		}
 
 		extensions ??= [];
 		if (!extensions.Any()) {
-			var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? string.Empty;
+			var pathExt = Environment.GetEnvironmentVariable("PATHEXT") ?? "";
 			extensions = pathExt.Length > 0 ? pathExt.Split(';', splitOptions) : [".exe", ".cmd", ".bat", ".com"];
 		}
 
 		var regex = QuotePattern();
 		Extensions = [.. extensions.Select(item => item.ToLowerInvariant()).Distinct()];
-		Paths = [.. paths.Select(item => regex.Replace(item, string.Empty)).Distinct()];
+		Paths = [.. paths.Select(item => regex.Replace(item, "")).Distinct()];
 	}
 
 	/// <summary>
@@ -114,7 +114,7 @@ public partial class Finder {
 	/// <param name="directory">The directory path.</param>
 	/// <param name="command">The command to be resolved.</param>
 	/// <returns>The paths of the executables found.</returns>
-	private IEnumerable<string> FindExecutables(string directory, string command) => new string[] { string.Empty }
+	private IEnumerable<string> FindExecutables(string directory, string command) => new string[] { "" }
 		.Concat(OperatingSystem.IsWindows() ? Extensions : [])
 		.Select(extension => Path.GetFullPath(Path.Join(directory, $"{command}{extension}")))
 		.Where(IsExecutable);
