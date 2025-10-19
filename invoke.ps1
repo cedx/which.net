@@ -1,5 +1,5 @@
 #!/usr/bin/env pwsh
-param ([switch] $release)
+param ([switch] $Release)
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
