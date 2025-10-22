@@ -1,5 +1,16 @@
 #!/usr/bin/env pwsh
-param ([Parameter(Position = 0)] [string] $Command = "Default", [switch] $Release)
+param (
+	[Parameter(Position = 0)]
+	[ArgumentCompleter({
+		param($commandName, $parameterName, $wordToComplete)
+		(Get-Item "$PSScriptRoot/tool/$wordToComplete*.ps1").BaseName
+	})]
+	[string] $Command = "Default",
+
+	[Parameter()]
+	[switch] $Release
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
