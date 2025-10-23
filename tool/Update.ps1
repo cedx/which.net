@@ -1,2 +1,2 @@
 "Updating the dependencies..."
-Update-PSResource PSScriptAnalyzer
+Update-PSResource PSScriptAnalyzer -TrustRepository
