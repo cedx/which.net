@@ -1,2 +1,2 @@
 "Installing the dependencies..."
-Install-PSResource PSScriptAnalyzer -WarningAction SilentlyContinue
+Install-PSResource PSScriptAnalyzer -TrustRepository -WarningAction SilentlyContinue
