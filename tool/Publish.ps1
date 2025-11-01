@@ -1,5 +1,5 @@
-. $PSScriptRoot/Clean.ps1
-. $PSScriptRoot/Version.ps1
+. "$PSScriptRoot/Clean.ps1"
+. "$PSScriptRoot/Version.ps1"
 
 "Publishing the package..."
 $version = (Import-PowerShellDataFile "Which.psd1").ModuleVersion
