@@ -4,7 +4,7 @@
 		{
 			"label": "Build",
 			"type": "shell",
-			"command": "./invoke.ps1",
+			"command": "./Invoke.ps1",
 			"args": ["Build"]
 		}
 	]
