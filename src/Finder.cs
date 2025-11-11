@@ -94,18 +94,18 @@ public partial class Finder {
 	private static bool CheckFilePermissions(string file) {
 		// Others.
 		_ = Syscall.stat(file, out var stat);
-		if ((stat.st_mode & FilePermissions.S_IXOTH) != 0) return true;
+		if (stat.st_mode.HasFlag(FilePermissions.S_IXOTH)) return true;
 
 		// Group.
 		var gid = Syscall.getgid();
-		if ((stat.st_mode & FilePermissions.S_IXGRP) != 0) return gid == stat.st_gid;
+		if (stat.st_mode.HasFlag(FilePermissions.S_IXGRP)) return gid == stat.st_gid;
 
 		// Owner.
 		var uid = Syscall.getuid();
-		if ((stat.st_mode & FilePermissions.S_IXUSR) != 0) return uid == stat.st_uid;
+		if (stat.st_mode.HasFlag(FilePermissions.S_IXUSR)) return uid == stat.st_uid;
 
 		// Root.
-		return (stat.st_mode & (FilePermissions.S_IXGRP | FilePermissions.S_IXUSR)) != 0 && uid == 0;
+		return (stat.st_mode.HasFlag(FilePermissions.S_IXGRP) || stat.st_mode.HasFlag(FilePermissions.S_IXUSR)) && uid == 0;
 	}
 
 	/// <summary>
