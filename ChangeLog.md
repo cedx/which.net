@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [1.0.0-rc6](https://github.com/cedx/which.net/compare/v1.0.0-rc5...v1.0.0-rc6)
+- Fixed a packaging issue.
+
 ## Version [1.0.0-rc5](https://github.com/cedx/which.net/compare/v1.0.0-rc4...v1.0.0-rc5)
 - Added support for [.NET](https://dotnet.microsoft.com/en-us) 10.
 
