@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [1.0.0-rc5](https://github.com/cedx/which.net/compare/v1.0.0-rc4...v1.0.0-rc5)
+- Added support for [.NET](https://dotnet.microsoft.com/en-us) 10.
+
 ## Version [1.0.0-rc4](https://github.com/cedx/which.net/compare/v1.0.0-rc3...v1.0.0-rc4)
 - Removed the `ResultSet.Stream` property.
 - The `ResultSet` class now implements the `IEnumerable<string>` interface.
