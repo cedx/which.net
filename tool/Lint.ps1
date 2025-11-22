@@ -1,4 +1,4 @@
 "Performing the static analysis of source code..."
 Import-Module PSScriptAnalyzer
 Invoke-ScriptAnalyzer $PSScriptRoot -Recurse
-Invoke-ScriptAnalyzer *.psd1
+Test-ModuleManifest "$PSScriptRoot/../Which.psd1" | Out-Null
