@@ -1,5 +1,5 @@
 if ($Release) {
-	. "$PSScriptRoot/Default.ps1"
+	& "$PSScriptRoot/Default.ps1"
 }
 else {
 	'The "-Release" switch must be set!'
