@@ -1,2 +1,2 @@
 "Checking for outdated dependencies..."
-dotnet list package --outdated
+dotnet package list --outdated
