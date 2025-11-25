@@ -3,6 +3,8 @@
 		<File Path=".editorconfig" />
 		<File Path=".gitattributes" />
 		<File Path=".gitignore" />
+		<File Path="PSModules.psd1" />
+		<File Path="Setup.iss" />
 		<File Path="Which.psd1" />
 	</Folder>
 	<Folder Name="/Documentation/">
@@ -21,7 +23,11 @@
 		<File Path="res/Executable.sh" />
 		<File Path="res/NotExecutable.sh" />
 	</Folder>
-	<Folder Name="/Tools/">
+	<Folder Name="/Scripts/">
+		<File Path="Invoke.ps1" />
+		<File Path="Start.ps1" />
+	</Folder>
+	<Folder Name="/Scripts/Tools/">
 		<File Path="tool/Build.ps1" />
 		<File Path="tool/Clean.ps1" />
 		<File Path="tool/Default.ps1" />
