@@ -1,4 +1,4 @@
-﻿@{
+@{
 	ModuleVersion = "1.0.0-rc6"
 	PowerShellVersion = "7.5"
 
@@ -6,12 +6,6 @@
 	CompanyName = "Cedric-Belin.fr"
 	Copyright = "© Cédric Belin"
 	Description = "Find the instances of an executable in the system path. Like the `which` Linux command."
-	GUID = "21586df1-1cda-4f7d-b310-7da598712f3e"
-
-	AliasesToExport = @()
-	CmdletsToExport = @()
-	FunctionsToExport = @()
-	VariablesToExport = @()
 
 	PrivateData = @{
 		PSData = @{
