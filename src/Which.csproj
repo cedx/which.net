@@ -18,7 +18,6 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<ApplicationIcon>Cli/Program.ico</ApplicationIcon>
 		<AssemblyName>Belin.Which</AssemblyName>
