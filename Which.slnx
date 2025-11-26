@@ -42,6 +42,9 @@
 		<File Path="tool/Version.ps1" />
 		<File Path="tool/Watch.ps1" />
 	</Folder>
+	<Folder Name="/Workflows/">
+		<File Path=".github/workflows/ContinuousIntegration.yaml" />
+	</Folder>
 	<Project Path="src/Which.csproj" />
 	<Project Path="test/Which.Tests.csproj">
 		<Build Solution="Release|*" Project="false" />
