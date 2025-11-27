@@ -1,7 +1,6 @@
 * text=auto
 .* text
 
-*.cake text
 *.config text
 *.cs text diff=csharp
 *.csproj text
@@ -15,7 +14,7 @@
 *.json text
 *.md text diff=markdown
 *.ps1 text
-*.scss text diff=css
+*.psd1 text
 *.slnx text
 *.sql text
 *.svg text
