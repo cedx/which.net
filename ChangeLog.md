@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [1.0.0-rc7](https://github.com/cedx/which.net/compare/v1.0.0-rc6...v1.0.0-rc7)
+- Removed the command line interface.
+
 ## Version [1.0.0-rc6](https://github.com/cedx/which.net/compare/v1.0.0-rc5...v1.0.0-rc6)
 - Fixed a packaging issue.
 
