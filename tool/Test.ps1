@@ -1,2 +1,2 @@
 "Running the test suite..."
-dotnet test --results-directory var
+dotnet test --settings .runsettings
