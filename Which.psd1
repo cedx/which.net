@@ -1,5 +1,5 @@
 @{
-	ModuleVersion = "1.0.0-rc6"
+	ModuleVersion = "1.0.0-rc7"
 	PowerShellVersion = "7.5"
 	RootModule = "bin/Belin.Which.dll"
 

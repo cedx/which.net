@@ -4,7 +4,7 @@
 		<Copyright>© Cédric Belin</Copyright>
 		<Description>Find the instances of an executable in the system path. Like the `which` Linux command.</Description>
 		<Product>Which for .NET</Product>
-		<Version>1.0.0-rc6</Version>
+		<Version>1.0.0-rc7</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -19,13 +19,10 @@
 
 	<PropertyGroup>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<ApplicationIcon>Cli/Program.ico</ApplicationIcon>
 		<AssemblyName>Belin.Which</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<OutDir>../bin</OutDir>
-		<OutputType>Exe</OutputType>
-		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
 
