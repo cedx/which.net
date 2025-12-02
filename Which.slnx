@@ -4,7 +4,6 @@
 		<File Path=".gitattributes" />
 		<File Path=".gitignore" />
 		<File Path="PSModules.psd1" />
-		<File Path="Setup.iss" />
 		<File Path="Which.psd1" />
 	</Folder>
 	<Folder Name="/Documentation/">
@@ -25,7 +24,6 @@
 	</Folder>
 	<Folder Name="/Scripts/">
 		<File Path="Invoke.ps1" />
-		<File Path="Start.ps1" />
 	</Folder>
 	<Folder Name="/Scripts/Tools/">
 		<File Path="tool/Build.ps1" />
@@ -36,7 +34,6 @@
 		<File Path="tool/Lint.ps1" />
 		<File Path="tool/Outdated.ps1" />
 		<File Path="tool/Publish.ps1" />
-		<File Path="tool/Setup.ps1" />
 		<File Path="tool/Test.ps1" />
 		<File Path="tool/Update.ps1" />
 		<File Path="tool/Version.ps1" />
