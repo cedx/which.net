@@ -12,12 +12,12 @@ public sealed class ResultSet(string command, Finder finder): IEnumerable<string
 	/// <summary>
 	/// All instances of the searched command.
 	/// </summary>
-	public string[] All => [.. finder.Find(command).Distinct()];
+	public string[] All => [.. this.Distinct()];
 
 	/// <summary>
 	/// The first instance of the searched command. Returns <see langword="null"/> if not found.
 	/// </summary>
-	public string? First => finder.Find(command).FirstOrDefault();
+	public string? First => this.FirstOrDefault();
 
 	/// <summary>
 	/// Returns an enumerator that iterates through the sort properties.
