@@ -20,14 +20,14 @@ public sealed class ResultSet(string command, Finder finder): IEnumerable<string
 	public string? First => this.FirstOrDefault();
 
 	/// <summary>
-	/// Returns an enumerator that iterates through the sort properties.
+	/// Returns a new enumerator that allows iterating the results of this set.
 	/// </summary>
-	/// <returns>An enumerator that can be used to iterate through the sort properties.</returns>
+	/// <returns>An enumerator iterator for the results of this set.</returns>
 	public IEnumerator<string> GetEnumerator() => finder.Find(command).GetEnumerator();
 
 	/// <summary>
-	/// Returns an enumerator that iterates through the sort properties.
+	/// Returns a new enumerator that allows iterating the results of this set.
 	/// </summary>
-	/// <returns>An enumerator that can be used to iterate through the sort properties.</returns>
+	/// <returns>An enumerator iterator for the results of this set.</returns>
 	IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
