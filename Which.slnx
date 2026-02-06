@@ -1,47 +1,4 @@
 <Solution>
-	<Folder Name="/Configuration/">
-		<File Path=".editorconfig" />
-		<File Path=".gitattributes" />
-		<File Path=".gitignore" />
-		<File Path=".runsettings" />
-		<File Path="PSModules.psd1" />
-		<File Path="Which.psd1" />
-	</Folder>
-	<Folder Name="/Documentation/">
-		<File Path="Authors.txt" />
-		<File Path="ChangeLog.md" />
-		<File Path="License.md" />
-		<File Path="ReadMe.md" />
-	</Folder>
-	<Folder Name="/Examples/">
-		<File Path="example/All.cs" />
-		<File Path="example/First.cs" />
-		<File Path="example/Iteration.cs" />
-	</Folder>
-	<Folder Name="/Resources/">
-		<File Path="res/Executable.cmd" />
-		<File Path="res/Executable.sh" />
-		<File Path="res/NotExecutable.sh" />
-	</Folder>
-	<Folder Name="/Scripts/">
-		<File Path="Invoke.ps1" />
-	</Folder>
-	<Folder Name="/Scripts/Tools/">
-		<File Path="tool/Build.ps1" />
-		<File Path="tool/Clean.ps1" />
-		<File Path="tool/Default.ps1" />
-		<File Path="tool/Format.ps1" />
-		<File Path="tool/Install.ps1" />
-		<File Path="tool/Lint.ps1" />
-		<File Path="tool/Outdated.ps1" />
-		<File Path="tool/Publish.ps1" />
-		<File Path="tool/Test.ps1" />
-		<File Path="tool/Update.ps1" />
-		<File Path="tool/Version.ps1" />
-	</Folder>
-	<Folder Name="/Workflows/">
-		<File Path=".github/workflows/ContinuousIntegration.yaml" />
-	</Folder>
 	<Project Path="src/Which.csproj" />
 	<Project Path="test/Which.Tests.csproj">
 		<Build Solution="Release|*" Project="false" />
