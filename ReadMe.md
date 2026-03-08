@@ -2,7 +2,7 @@
 Find the instances of an executable in the system path, in [C#](https://learn.microsoft.com/en-us/dotnet/csharp).
 
 ## Documentation
-- [User guide](https://github.com/cedx/which.net/wiki)
+- [User guide](https://github.com/cedx/which.net/tree/main/docs)
 - [Examples](https://github.com/cedx/which.net/tree/main/example)
 
 ## Development
