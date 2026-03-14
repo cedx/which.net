@@ -8,7 +8,7 @@ You can verify if you're already good to go with the following command:
 
 ```shell
 dotnet --version
-# 10.0.103
+# 10.0.200
 ```
 
 ## Installing with NuGet package manager
