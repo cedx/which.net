@@ -1,6 +1,6 @@
 @{
 	ModuleVersion = "1.0.0-rc7"
-	PowerShellVersion = "7.5"
+	PowerShellVersion = "7.6"
 	RootModule = "bin/Belin.Which.dll"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
