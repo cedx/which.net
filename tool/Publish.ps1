@@ -13,6 +13,4 @@ git tag "v$version"
 git push origin "v$version"
 
 dotnet pack --output var
-Get-Item var/*.nupkg | ForEach-Object {
-	dotnet nuget push $_ --api-key $Env:NUGET_API_KEY --source https://api.nuget.org/v3/index.json
-}
+Get-Item var/*.nupkg | ForEach-Object { dotnet nuget push $_ --api-key $Env:NUGET_API_KEY --source NuGet }
