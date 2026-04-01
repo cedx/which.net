@@ -8,7 +8,7 @@ else {
 }
 
 "Publishing the package..."
-$version = Import-PowerShellDataFile Which.psd1 | Select-Object -ExpandProperty ModuleVersion
+$version = (Import-PowerShellDataFile Which.psd1).ModuleVersion
 git tag "v$version"
 git push origin "v$version"
 
