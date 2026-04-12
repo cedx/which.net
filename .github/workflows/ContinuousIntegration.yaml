@@ -18,5 +18,7 @@ jobs:
         uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10
+      - name: Install dependencies
+        run: ./Invoke.ps1 Install
       - name: Run tests
         run: ./Invoke.ps1 Test
