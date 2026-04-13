@@ -1,4 +1,4 @@
-using module ./PSResource.psm1
+using module ./Cmdlets.psm1
 
 "Checking for outdated dependencies..."
 dotnet package list --outdated
