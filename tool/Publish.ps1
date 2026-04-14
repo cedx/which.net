@@ -1,7 +1,4 @@
-if ($Release) {
-	& "$PSScriptRoot/Clean.ps1"
-	& "$PSScriptRoot/Version.ps1"
-}
+if ($Release) { & "$PSScriptRoot/Default.ps1" }
 else {
 	"The ""-Release"" switch must be set!"
 	exit 1
@@ -12,5 +9,6 @@ $version = (Import-PowerShellDataFile Which.psd1).ModuleVersion
 git tag "v$version"
 git push origin "v$version"
 
-dotnet pack --output var
-Get-Item var/*.nupkg | ForEach-Object { dotnet nuget push $_ --api-key $Env:NUGET_API_KEY --source NuGet }
+$output = "var/NuGet"
+dotnet pack --no-build --output $output
+Get-Item "$output/*.nupkg" | ForEach-Object { dotnet nuget push $_ --api-key $Env:NUGET_API_KEY --source NuGet }
