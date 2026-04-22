@@ -1,3 +1,5 @@
+using namespace System.Diagnostics.CodeAnalysis
+
 <#
 .SYNOPSIS
 	Builds the .NET solution and all of its dependencies.
@@ -41,6 +43,7 @@ function Invoke-DotNetTest {
 	Creates a new Git tag.
 #>
 function New-GitTag {
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The tag name.
 		[Parameter(Mandatory, Position = 0)]
