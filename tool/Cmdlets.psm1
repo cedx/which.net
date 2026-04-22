@@ -70,6 +70,21 @@ function Publish-NuGetPackage {
 
 <#
 .SYNOPSIS
+	Installs the specified NuGet package, if any. Otherwise, installs all packages.
+#>
+function Restore-NuGetPackage {
+	param (
+		# The package to install.
+		[Parameter(Position = 0)]
+		[string] $Package
+	)
+
+	if ($Package) { dotnet package add $Package }
+	else { dotnet restore }
+}
+
+<#
+.SYNOPSIS
 	Checks whether an update is available for the NuGet packages.
 #>
 function Test-NuGetPackageUpdate {
