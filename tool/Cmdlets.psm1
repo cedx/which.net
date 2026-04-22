@@ -65,7 +65,7 @@ function Publish-NuGetPackage {
 	$argumentList = "--output", $output
 	if ($NoBuild) { $argumentList += "--no-build" }
 	dotnet pack @argumentList
-	foreach ($package in Get-Item "$output/*.nupkg") { dotnet nuget push $package --api-key $Env:NUGET_API_KEY --source NuGet }
+	foreach ($package in Get-Item $output/*.nupkg) { dotnet nuget push $package --api-key $Env:NUGET_API_KEY --source NuGet }
 }
 
 <#
