@@ -1,2 +1,4 @@
+using module ./Cmdlets.psm1
+
 "Formatting the source code..."
-dotnet format
+Format-DotNetSolution

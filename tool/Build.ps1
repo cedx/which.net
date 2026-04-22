@@ -1,2 +1,4 @@
+using module ./Cmdlets.psm1
+
 "Building the solution..."
-dotnet build --configuration ($Release ? "Release" : "Debug")
+Build-DotNetSolution ($Release ? "Release" : "Debug")

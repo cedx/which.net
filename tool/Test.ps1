@@ -1,2 +1,4 @@
+using module ./Cmdlets.psm1
+
 "Running the test suite..."
-dotnet test --settings .runsettings
+Invoke-DotNetTest -Settings "$PSScriptRoot/../.runsettings"
