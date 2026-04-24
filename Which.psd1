@@ -13,10 +13,6 @@
 	FunctionsToExport = @()
 	VariablesToExport = @()
 
-	RequiredAssemblies = @(
-		"bin/Belin.Which.dll"
-	)
-
 	PrivateData = @{
 		PSData = @{
 			LicenseUri = "https://github.com/cedx/which.net/blob/main/License.md"
