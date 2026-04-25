@@ -6,7 +6,7 @@ in [C#](https://learn.microsoft.com/en-us/dotnet/csharp).
 Install the latest version of **Which for .NET** with [NuGet](https://www.nuget.org) package manager:
 
 ```shell
-dotnet add package Belin.Which
+dotnet package add Belin.Which
 ```
 
 For detailed instructions, see the [installation guide](Installation.md).

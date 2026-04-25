@@ -17,7 +17,7 @@ dotnet --version
 From a command prompt, run:
 
 ```shell
-dotnet add package Belin.Which
+dotnet package add Belin.Which
 ```
 
 ### 2. Import it
