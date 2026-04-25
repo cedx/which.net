@@ -1,7 +1,6 @@
 namespace Belin.Which;
 
 using Mono.Unix.Native;
-using System;
 using System.IO;
 using System.Runtime.Versioning;
 using System.Text.RegularExpressions;

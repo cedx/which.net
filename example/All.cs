@@ -1,4 +1,3 @@
-using System;
 using static Belin.Which.Finder;
 
 // Finds all instances of an executable.

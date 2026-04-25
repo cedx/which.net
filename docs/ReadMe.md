@@ -19,7 +19,6 @@ The `ResultSet` class implements the `IEnumerable<string>` interface.
 It is therefore possible to iterate over the results using a `foreach` loop:
 
 ```cs
-using System;
 using static Belin.Which.Finder;
 
 // Finds all instances of an executable and returns them one at a time.
@@ -37,7 +36,6 @@ The `ResultSet.All` property returns an array of the absolute paths of all insta
 If the executable could not be located, it returns an empty array.
 
 ```cs
-using System;
 using static Belin.Which.Finder;
 
 var paths = Which("foobar").All;
@@ -53,7 +51,6 @@ The `ResultSet.First` property returns the absolute path of the first instance o
 If the executable could not be located, it returns a `null` reference.
 
 ```cs
-using System;
 using static Belin.Which.Finder;
 
 var path = Which("foobar").First;
