@@ -2,6 +2,7 @@
 	<PropertyGroup>
 		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
+		<Description>Find the instances of an executable in the system path. Like the `which` Linux command.</Description>
 		<Product>Which for .NET</Product>
 		<Version>1.0.0-rc7</Version>
 	</PropertyGroup>
