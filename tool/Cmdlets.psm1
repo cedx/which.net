@@ -73,14 +73,6 @@ function Publish-NuGetPackage {
 
 <#
 .SYNOPSIS
-	Restores the NuGet packages.
-#>
-function Restore-NuGetPackage {
-	dotnet restore
-}
-
-<#
-.SYNOPSIS
 	Checks whether an update is available for the NuGet packages.
 #>
 function Test-NuGetPackageUpdate {
